@@ -1,6 +1,6 @@
 # **.SENSOR** Check-SPFRecord_Sensor
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](Screenshot_01.jpg)
 
 ## **.DESCRIPTION**
 
