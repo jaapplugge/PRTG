@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Unknown Computers</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>
+
+     <result>
+        <channel>Unknown hardware configuration</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>
+
+    <result>
+        <channel>Not Domain joined</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>
+
+    <result>
+        <channel>90 days inactive</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>
+
+    <result>
+        <channel>SCCM Client missing</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>    
+
+     <result>
+        <channel>SCCM Clients with error</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Clients</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning></LimitMaxWarning>
+        <LimitMaxError></LimitMaxError>
+    </result>   
+    
+</prtg>

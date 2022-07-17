@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Days since last reboot</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Days</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Updates installed (total)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result> 
+        <result>
+                <channel>Updates missing (total)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Updates failed (total)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Updates installed (since patchtuesday)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result> 
+        <result>
+                <channel>Updates missing (since patchtuesday)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Updates failed (since patchtuesday)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Updates</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>                                       
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

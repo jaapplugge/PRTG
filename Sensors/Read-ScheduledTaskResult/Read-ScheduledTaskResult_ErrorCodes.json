@@ -1,0 +1,99 @@
+{
+    "Errorcodes" : {
+        "Code_01" : {
+            "Code_Hex" : "0",
+            "Code_Dec" : 0,
+            "Weight"   : 0, 
+            "Message"  : "The operation completed successfully."
+        },
+        "Code_02" : { 
+            "Code_Hex" : "1",
+            "Code_Dec" : 1,
+            "Weight"   : 2, 
+            "Message"  : "Incorrect function called or unknown function called." 
+        },
+        "Code_03" : {
+            "Code_Hex" : "2",
+            "Code_Dec" : 2,
+            "Weight"   : 2, 
+            "Message"  : "File not found."
+        },
+        "Code_04" : {
+            "Code_Hex" : "10",
+            "Code_Dec" : 16,
+            "Weight"   : 2, 
+            "Message"  : "The environment is incorrect."
+        },
+        "Code_05" : {
+            "Code_Hex" : "0x41300",    
+            "Weight"   : 267008, 
+            "Message"  : "Task is ready to run at its next scheduled time."
+        },
+        "Code_06" : {
+            "Code_Hex" : "0x41301",
+            "Code_Dec" : 267009,
+            "Weight"   : 0, 
+            "Message"  : "Task is currently running."
+        },
+        "Code_07" : {
+            "Code_Hex" : "0x41302",
+            "Code_Dec" : 267010,
+            "Weight"   : 1, 
+            "Message"  : "Task is disabled."
+        },
+        "Code_08" : {
+            "Code_Hex" : "0x41303",
+            "Code_Dec" : 267011,
+            "Weight"   : 1, 
+            "Message"  : "Task has not yet run."
+        },
+        "Code_09" : {
+            "Code_Hex" : "0x41304",
+            "Code_Dec" : 267012,
+            "Weight"   : 1, 
+            "Message"  : "There are no more runs scheduled for this task."
+        },
+        "Code_10" : {
+            "Code_Hex" : "0x41306",
+            "Code_Dec" : 267014,
+            "Weight"   : 2, 
+            "Message"  : "Task is terminated."
+        },
+        "Code_11" : {
+            "Code_Hex" : "0x8004130F", 
+            "Code_Dec" : 2147750671,
+            "Weight"   : 2, 
+            "Message"  : "Credentials not correct"
+        },
+        "Code_12" : {
+            "Code_Hex" : "0x8004131F", 
+            "Code_Dec" : 2147750687,
+            "Weight"   : 1, 
+            "Message"  : "An instance of this task is already running."
+        },
+        "Code_13" : {
+            "Code_Hex" : "0x80070002", 
+            "Code_Dec" : 2147942402,
+            "Weight"   : 2, 
+            "Message"  : "File not available (2147942402)"
+        },
+        "Code_14" : {
+            "Code_Hex" : "0x800704DD", 
+            "Code_Dec" : 2147943645,
+            "Weight"   : 2, 
+            "Message"  : "The service is not available"
+        },
+        "Code_15" : {
+            "Code_Hex" : "0xC000013A", 
+            "Code_Dec" : 3221225786,
+            "Weight"   : 2, 
+            "Message"  : "The application terminated as a result of a CTRL+C."
+        },
+        "Code_16" : {
+            "Code_Hex" : "0xC06D007E", 
+            "Code_Dec" : 3228369022,
+            "Weight"   : 2, 
+            "Message"  : "Unknown software exception"
+        }              
+    }
+}

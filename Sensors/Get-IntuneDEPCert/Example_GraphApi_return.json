@@ -1,0 +1,40 @@
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/depOnboardingSettings",
+    "@odata.count": 0,
+    "value": [
+        {
+            "id": "779b8e3c-0af9-4a66-add5-f87466d4596a",
+            "appleIdentifier": "apple@plugged.nl",
+            "tokenExpirationDateTime": "2020-02-12T10:11:16Z",
+            "lastModifiedDateTime": "2019-02-12T10:12:35.9034359Z",
+            "lastSuccessfulSyncDateTime": "2020-01-29T15:56:26.9914417Z",
+            "lastSyncTriggeredDateTime": "2019-11-04T10:27:55.7662023Z",
+            "shareTokenWithSchoolDataSyncService": false,
+            "lastSyncErrorCode": 0,
+            "tokenType": "dep",
+            "tokenName": "Intune token",
+            "syncedDeviceCount": 0,
+            "dataSharingConsentGranted": true,
+            "roleScopeTagIds": [
+                "0"
+            ]
+        },
+        {
+            "id": "b2ee806c-a414-4ae1-9cfe-a4b6978c1225",
+            "appleIdentifier": "apple@plugged.nl",
+            "tokenExpirationDateTime": "2021-01-29T13:24:40Z",
+            "lastModifiedDateTime": "2020-01-30T13:26:51.5505421Z",
+            "lastSuccessfulSyncDateTime": "2020-01-31T21:59:34.4652782Z",
+            "lastSyncTriggeredDateTime": "2020-01-30T13:26:52.4896946Z",
+            "shareTokenWithSchoolDataSyncService": false,
+            "lastSyncErrorCode": 0,
+            "tokenType": "dep",
+            "tokenName": "Intune token(2)",
+            "syncedDeviceCount": 304,
+            "dataSharingConsentGranted": true,
+            "roleScopeTagIds": [
+                "0"
+            ]
+        }
+    ]
+}

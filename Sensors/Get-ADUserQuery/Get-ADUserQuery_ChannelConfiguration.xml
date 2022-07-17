@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Total number of users</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Users</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Total number of disabled users</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Users</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Total number of enabled users</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Users</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>          
+        <result>
+                <channel>Users with Password Never Expires set</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Status</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Users with a locked out account</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Status</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxWarning>1</LimitMaxWarning>
+                <LimitMaxError>2</LimitMaxError>
+        </result>
+        <result>
+                <channel>Users with an expired password</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Status</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

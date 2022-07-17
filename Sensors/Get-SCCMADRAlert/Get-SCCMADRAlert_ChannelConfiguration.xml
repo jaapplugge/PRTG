@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Windows 10 clients - Group 1</channel>
+                <value>0</value>
+                <unit>Percent</unit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>50</LimitMaxError>
+        </result>
+        <result>
+                <channel>Windows 10 clients - Group 2</channel>
+                <value>0</value>
+                <unit>Percent</unit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>50</LimitMaxError>
+        </result>
+        <result>
+                <channel>Windows Server 2019 - Group 1</channel>
+                <value>0</value>
+                <unit>Percent</unit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>50</LimitMaxError>
+        </result> 
+        <result>
+                <channel>Windows Server 2019 - Group 2</channel>
+                <value>0</value>
+                <unit>Percent</unit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>50</LimitMaxError>
+        </result>                        
+        <template>
+                <channel>Name of the ADR</channel>
+                <value>0</value>
+                <unit>Percent</unit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>50</LimitMaxError>
+        </template>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

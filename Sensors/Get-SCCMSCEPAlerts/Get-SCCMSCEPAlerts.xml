@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Virus Alert</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Infections</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>1</LimitMaxError>
+        </result>
+        <result>
+                <channel>Repeated Virusses detected</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Infections</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Multiple Virusses detected</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Infections</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>               
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>All VPN events</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 868 - RoutingIssue</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 868]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 800 - The remote connection was not made because the attempted VPN tunnels failed</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 800]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 809 - The remote server is not responding.</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 809]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 812 - The authentication method the server used to verify credentials may not match the authentication method configured in connection profile.</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 812]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 13801 - IKE authentication credentials are unacceptable.</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 13801]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 13849 - Umbrella</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 13849]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Event 0 - onbekend</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Errors in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>* [System[Provider[@Name='RasClient']]] [System[(Level=1 or Level=2)]] [System[TimeCreated[timediff(@SystemTime) &lt;= 86400000]]] [EventData[Data[4] = 0]]</Query>
+                </Custom>
+        </result>               
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

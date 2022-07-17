@@ -1,0 +1,534 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>EventID 1024 Virus detected; not remediated</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1024: Virus detected; not remediated.</errormessage>
+            <warningmessage>Detected eventID 1024: Virus detected; not remediated.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1024</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>
+    </result>
+    <result>
+        <channel>EventID 1025 Virus detected; cleaned</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1025: Detected malware or other potentially unwanted software.</errormessage>
+            <warningmessage>Detected eventID 1025: Detected malware or other potentially unwanted software.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1025</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>
+    </result>
+    <result>
+        <channel>EventID 1026 Malware detected; not remediated</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1026: Virus detected; not remediated.</errormessage>
+            <warningmessage>Detected eventID 1026: Virus detected; not remediated.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1026</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1027 Malware detected and deleted</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1027: Malware detected; McAfee deleted the file.</errormessage>
+            <warningmessage>Detected eventID 1027: Malware detected; McAfee deleted the file.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1027</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>  
+    <result>
+        <channel>EventID 1028 Malware detected and deleted</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1028: Malware detected; McAfee deleted the file.</errormessage>
+            <warningmessage>Detected eventID 1028: Malware detected; McAfee deleted the file.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1028</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>  
+    <result>
+        <channel>EventID 1032 Malware detected and quarantained</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1032: Has detected malware and moved to quarantine.</errormessage>
+            <warningmessage>Detected eventID 1032: Has detected malware and moved to quarantine.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1032</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>
+    <result>
+        <channel>EventID 1037 Infected bootrecord</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1037: McAfee removed an infected bootrecord.</errormessage>
+            <warningmessage>Detected eventID 1037: McAfee removed an infected bootrecord.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1037</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>
+    <result>
+        <channel>EventID 1038 Scan detected malware</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1038: Scan has detected malware.</errormessage>
+            <warningmessage>Detected eventID 1038: Scan has detected malware.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1038</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>  
+    <result>
+        <channel>EventID 1039 Scan detected and cleaned detection</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1039: Scan detected and cleaned detection.</errormessage>
+            <warningmessage>Detected eventID 1039: Scan detected and cleaned detection.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1039</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>
+    <result>
+        <channel>EventID 1053 Heuristic detection</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1053: Heuristic detection.</errormessage>
+            <warningmessage>Detected eventID 1053: Heuristic detection.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1053</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1055 Virus detected; will be deleted on next reboot</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1055: Virus detected; will be deleted on next reboot.</errormessage>
+            <warningmessage>Detected eventID 1055: Virus detected; will be deleted on next reboot.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1055</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>
+    <result>
+        <channel>EventID 1056 Heuristic detection file is moved to quarantine</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1056: Heuristic detection, file is moved to quarantine.</errormessage>
+            <warningmessage>Detected eventID 1056: Heuristic detection, file is moved to quarantine.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1056</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>                                                                 
+    <result>
+        <channel>EventID 1059 Scanning of a file has taken too long to complete</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1059: Scanning of a file has taken too long to complete.</errormessage>
+            <warningmessage>Detected eventID 1059: Scanning of a file has taken too long to complete.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1059</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result>
+    <result>
+        <channel>EventID 1060 Scan cleaned an infected boot record</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1060: Scan cleaned an infected boot record.</errormessage>
+            <warningmessage>Detected eventID 1060: Scan cleaned an infected boot record.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1060</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1061 Error while cleaning a boot record</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage></errormessage>
+            <warningmessage></warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1061</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1067 Task failed to start</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1067: Task failed to start.</errormessage>
+            <warningmessage>Detected eventID 1067: Task failed to start.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1067</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1091 Script execution blocked</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1091: Script execution blocked.</errormessage>
+            <warningmessage>Detected eventID 1091: Script execution blocked.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1091</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1093 Blocked by Buffer Overflow Protection</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1093: Blocked by Buffer Overflow Protection.</errormessage>
+            <warningmessage>Detected eventID 1093: Blocked by Buffer Overflow Protection.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1093</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1100 Virus detected with Multiple Extension Heuristics</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1100: Virus detected with Multiple Extension Heuristics.</errormessage>
+            <warningmessage>Detected eventID 1100: Virus detected with Multiple Extension Heuristics.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1100</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>                
+    </result> 
+    <result>
+        <channel>EventID 1101 Virus detected and deleted with Multiple Extension Heuristics</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1101: Virus detected and deleted with Multiple Extension Heuristics.</errormessage>
+            <warningmessage>Detected eventID 1101: Virus detected and deleted with Multiple Extension Heuristics.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1101</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config> 
+    </result>
+    <result>
+        <channel>EventID 1102 Virus detected and moved to quarantine with Multiple Extension Heuristics</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1102: Virus detected and moved to quarantine with Multiple Extension Heuristics.</errormessage>
+            <warningmessage>Detected eventID 1102: Virus detected and moved to quarantine with Multiple Extension Heuristics.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1102</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>             
+    </result>
+    <result>
+        <channel>EventID 1103 Virus detected not removed</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1103: Virus detected not removed.</errormessage>
+            <warningmessage>Detected eventID 1103: Virus detected not removed.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1103</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>         
+    </result>
+    <result>
+        <channel>EventID 1104 Virus detected and removed after next reboot</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1104: Virus detected and removed after next reboot.</errormessage>
+            <warningmessage>Detected eventID 1104: Virus detected and removed after next reboot.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1104</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>         
+    </result>  
+    <result>
+        <channel>EventID 1119 The update failed</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 1119: The update failed; see event log..</errormessage>
+            <warningmessage>Detected eventID 1119: The update failed; see event log..</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>1119</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>         
+    </result>  
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

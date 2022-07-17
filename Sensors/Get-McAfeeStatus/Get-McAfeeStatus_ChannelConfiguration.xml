@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Hours since last definition update</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Hours</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>72</LimitMaxError>
+        <LimitMaxWarning>48</LimitMaxWarning>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\McAfee\AVSolution\DS\DS</registrypath>
+            <registrykey>
+                <key1>szContentCreationDate</key1>
+                <key2>szContentCreationTime</key2>
+            </registrykey>
+            <warningmessage>Last definition update too long ago.</warningmessage>
+            <errormessage>Last definition update too long ago.</errormessage>
+        </config>
+    </result>
+    <result>
+        <channel>Hours since last quickscan</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Hours</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>3</LimitMaxError>
+        <LimitMinWarning>0</LimitMinWarning>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\McAfee\Endpoint\AV\ODS\TaskLastData\ODS_TASK_ID_QUICK_SCAN</registrypath>
+            <registrykey>uODSScanTime</registrykey>
+            <warningmessage>McAfee quicksscan has not run/ is not scheduled.</warningmessage>
+            <errormessage>MacAfee quickscan has ran too long ago</errormessage>
+        </config>
+    </result> 
+    <result>
+        <channel>Hours since last Fullscan</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Hours</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>3</LimitMaxError>
+        <LimitMinWarning>0</LimitMinWarning>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\McAfee\Endpoint\AV\ODS\TaskLastData\ODS_TASK_ID_FULL_SCAN</registrypath>
+            <registrykey>uODSScanTime</registrykey>
+            <warningmessage>McAfee fullscan has not run/ is not scheduled.</warningmessage>
+            <errormessage>MacAfee fullscan has ran too long ago</errormessage>
+        </config>
+    </result>        
+    <result>
+        <channel>Definition Version</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Days</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\McAfee\Endpoint\AV\AVCM</registrypath>
+            <registrykey>CMajor</registrykey>
+            <warningmessage>No warningstate</warningmessage>
+            <errormessage>No errorstate</errormessage>
+        </config>
+    </result> 
+    <result>
+        <channel>SystemCore Version</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Days</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\WOW6432Node\McAfee\SystemCore</registrypath>
+            <registrykey>system_core_version</registrykey>
+            <warningmessage>No warningstate</warningmessage>
+            <errormessage>No errorstate</errormessage>
+        </config>
+    </result> 
+    <result>
+        <channel>Application Version</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Days</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\WOW6432Node\McAfee\Agent\Applications\ENDP_AM_1070</registrypath>
+            <registrykey>Version</registrykey>
+            <warningmessage>No warningstate</warningmessage>
+            <errormessage>No errorstate</errormessage>
+        </config>
+    </result> 
+    <result>
+        <channel>Agent Version</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Days</customunit>
+        <showChart>0</showChart>
+        <showTable>0</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <config>
+            <registryhyve>HKLM</registryhyve>
+            <registrypath>SOFTWARE\WOW6432Node\McAfee\Agent</registrypath>
+            <registrykey>AgentVersion</registrykey>
+            <warningmessage>No warningstate</warningmessage>
+            <errormessage>No errorstate</errormessage>
+        </config>
+    </result>                  
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

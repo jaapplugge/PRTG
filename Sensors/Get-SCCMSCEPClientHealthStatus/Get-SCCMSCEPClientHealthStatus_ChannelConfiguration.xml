@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>All Clients</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>SCEP Client installation failed</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>10</LimitMaxError>
+                <LimitMaxWarning>5</LimitMaxWarning>
+        </result>
+        <result>
+                <channel>SCEP Client install PendingReboot</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>SCEP Client not installed</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>20</LimitMaxError>
+                <LimitMaxWarning>10</LimitMaxWarning>
+        </result>
+        <result>
+                <channel>SCEP Client install not supported</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>SCEP Client inactive</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+        </result>
+         <result>
+                <channel>Conf.Mgr. client not installed</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>20</LimitMaxError>
+                <LimitMaxWarning>10</LimitMaxWarning>
+        </result>
+        <result>
+                <channel>SCEP Client unhealthy</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>20</LimitMaxError>
+                <LimitMaxWarning>10</LimitMaxWarning>
+        </result>                                                
+         <result>
+                <channel>SCEP Client at risk</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>20</LimitMaxError>
+                <LimitMaxWarning>10</LimitMaxWarning>
+        </result>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

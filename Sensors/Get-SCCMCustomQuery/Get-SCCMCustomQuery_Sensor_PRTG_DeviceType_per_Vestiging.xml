@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Laptops Weesp Houtenlaan</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Desktops Weesp Houtenlaan</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result> 
+        <result>
+                <channel>Overige Weesp Houtenlaan</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Laptops Weesp CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Desktops Weesp CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Overige Weesp CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Desktops Eindhoven CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>		
+        <result>
+                <channel>Laptops Eindhoven CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Overige Eindhoven CashCenter</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Desktops SBP</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Laptops SBP</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Overige SBP</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

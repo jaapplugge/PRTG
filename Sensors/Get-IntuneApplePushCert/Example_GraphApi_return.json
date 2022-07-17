@@ -1,0 +1,9 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#deviceManagement/applePushNotificationCertificate/$entity",
+    "id": "ee1e98aa-88d7-4001-a27e-0cfd06093404",
+    "appleIdentifier": "admin@plugge.onmicrosoft.com",
+    "topicIdentifier": "com.apple.mgmt.External.72b460cd-a85f-4868-a675-2ee6df82b318",
+    "lastModifiedDateTime": "2020-01-30T13:52:29Z",
+    "expirationDateTime": "2021-01-29T13:41:41Z",
+    "certificate": null
+}

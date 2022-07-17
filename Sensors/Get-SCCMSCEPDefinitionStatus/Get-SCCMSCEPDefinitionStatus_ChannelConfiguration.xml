@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>All Clients</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>All Clients without SCEPClient</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>All Clients without Definitions</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>10</LimitMaxError>
+                <LimitMaxWarning>5</LimitMaxWarning>
+        </result>
+        <result>
+                <channel>Definitions older than 7 days</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>20</LimitMaxError>
+                <LimitMaxWarning>10</LimitMaxWarning>
+        </result>
+        <result>
+                <channel>Definitions less than 7 days old</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+         <result>
+                <channel>Definitions less than 3 days old</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>
+        <result>
+                <channel>Definitions less than 1 days old</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+        </result>                                                
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

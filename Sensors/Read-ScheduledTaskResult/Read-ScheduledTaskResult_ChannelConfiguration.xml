@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>ScheduledTask_Name</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Resultcode</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>1</LimitMaxError>
+                <LimitMaxWarning>1</LimitMaxWarning>
+        </result>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

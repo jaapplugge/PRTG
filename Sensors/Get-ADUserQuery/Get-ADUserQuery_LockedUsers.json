@@ -1,0 +1,71 @@
+﻿{
+        "Configuration" : {
+                "Configuration_01" : {
+                        "Name"        : "Total number of users",
+                        "QueryType"   : "Filter",
+                        "Query"       : "*", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name"]
+                },
+                "Configuration_02" : {
+                        "Name"        : "Total number of disabled users",
+                        "QueryType"   : "Filter",
+                        "Query"       : "(Enabled -eq $False)", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name","Enabled"]
+                }, 
+                "Configuration_03" : {
+                        "Name"        : "Total number of enabled users",
+                        "QueryType"   : "Filter",
+                        "Query"       : "(Enabled -eq $True)", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name","Enabled"]
+                }, 
+                "Configuration_04" : {
+                        "Name"        : "Users with Password Never Expires set",
+                        "QueryType"   : "Filter",
+                        "Query"       : "(Enabled -eq $True) -and (PasswordNeverExpires -eq $True)", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name","Enabled","PasswordNeverExpires"]
+                },
+                "Configuration_05" : {
+                        "Name"        : "Users with a locked out account",
+                        "QueryType"   : "ExtendedFilter",
+                        "Query"       : "($_.Enabled -eq $True) -and ($_.LockedOut -eq $True)", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name","Enabled","PasswordNeverExpires","LockedOut"]
+                },
+                "Configuration_06" : {
+                        "Name"        : "Users with an expired password",
+                        "QueryType"   : "ExtendedFilter",
+                        "Query"       : "($_.Enabled -eq $True) -and ($_.PasswordNeverExpires -eq $False) -and ($_.PasswordExpired -eq $True)", 
+                        "OU"          : "Users",
+                        "Searchscope" : "SubTree",
+			            "Properties"  : ["Name","Enabled","PasswordNeverExpires","PasswordExpired"]
+                },
+                "Template" : {
+                        "Name"               : "Name of the Channel, identical to the name in the XML Configuration",
+                        "QueryType"          : [
+                                        "Filter",
+                                        "LDAPFilter",
+                                        "ExtendedFilter"        
+                        ],
+                        "_About_QueryType"   : "Can only be Filter (for Get-ADUSER -Filter), LDAPFilter (for Get-ADUSER -LDAPFilter, or ExtendedFilter (For Get-ADUSER -filter * |?{} ",
+                        "Query"              : "Between {}, the query-statement", 
+                        "OU"                 : "Displayname of the OU to filter",
+                        "Searchscope"        : [
+                                        "Base",
+                                        "SubTree",
+                                        "Level"
+                        ],
+                        "_About_Searchscope" : "Can only be Base (Only the OU itself), Level (One level deeper also), or SubTree (All deeper levels)",
+                        "Properties"         : [],
+                        "_About_Properties"  : "Properties used in Query. Limit this as much as possible to speed up sensor."
+                }
+        }
+}

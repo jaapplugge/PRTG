@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>EventID 3 Virus detected</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxError>1</LimitMaxError>
+        <config>
+            <errormessage>Detected eventID 3 Virus detected.</errormessage>
+            <warningmessage>Detected eventID 3 Virus detected.</warningmessage>  
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>McAfee endpoint security</source>
+                <eventid>3</eventid>
+            </eventlog>
+            <timeframe>00:04:00</timeframe>
+        </config>
+    </result>
+    <result>
+        <channel>EventID 5008 Definitions updated</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMinWarning>1</LimitMinWarning>
+        <config>
+            <errormessage>Did not detect eventID 5008: Definition update.</errormessage>
+            <warningmessage>Did not detect eventID 5008: Definition update.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>AVLogEvent</source>
+                <eventid>5008</eventid>
+            </eventlog>
+            <timeframe>02:00:00</timeframe>
+        </config>
+    </result>
+    <result>
+        <channel>EventID 5008 Definitions updated</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>Events</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMinError>1</LimitMinError>
+        <config>
+            <errormessage>Did not detect eventID 5008: Definition update.</errormessage>
+            <warningmessage>Did not detect eventID 5008: Definition update.</warningmessage>
+            <eventlog>
+                <eventlog>Application</eventlog>
+                <source>AVLogEvent</source>
+                <eventid>5008</eventid>
+            </eventlog>
+            <timeframe>07:00:00</timeframe>
+        </config>
+    </result>
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

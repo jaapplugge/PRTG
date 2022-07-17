@@ -1,0 +1,148 @@
+﻿<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Is there a SPF-record in DNS?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>True / False</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMinError>0.5</LimitMinError>
+        </result>
+        <result>
+                <channel>Are there multiple DNS records?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>True / False</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>0.5</LimitMaxError>
+        </result> 
+        <result>
+                <channel>Does the record start with V=SPF1?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>True / False</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMinError>0.5</LimitMinError>
+        </result>
+        <result>
+                <channel>What kind of ALL statement is used?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Fail / Suspect / Do nothing</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>1.5</LimitMaxError>
+        </result> 
+        <result>
+                <channel>Are there records after the ALL-statement?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>True / False</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>0.5</LimitMaxError>
+        </result>
+        <result>
+                <channel>Length of a single string</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Characters</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>255</LimitMaxError>
+        </result>
+        <result>
+                <channel>Pointer-records (depricated)</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>PRT-records</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>0.5</LimitMaxError>
+        </result>
+        <result>
+                <channel>Named record count</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>PRT-records</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxError>9.5</LimitMaxError>
+        </result>
+        <result>
+                <channel>Do all records resolve in DNS?</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Failed lookups</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>1</LimitMode>
+                <LimitMaxWarning>0.5</LimitMaxWarning>
+                <LimitMaxError>1.5</LimitMaxError>
+        </result>
+        <result>
+                <channel>TTL</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Seconds</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+        </result> 
+         <result>
+                <channel>IPv4 Addresses</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Addresses</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+        </result>
+        <result>
+                <channel>IPv6 Addresses</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Addresses</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+        </result>
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

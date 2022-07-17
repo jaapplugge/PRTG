@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Days until expiration</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>days</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>1</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMinWarning>21</LimitMinWarning>
+        <LimitMinError>7</LimitMinError>
+    </result>
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+    <query>
+        <query>deviceManagement/applePushNotificationCertificate</query>
+        <version>v1.0</version>
+    </query>
+</prtg>
