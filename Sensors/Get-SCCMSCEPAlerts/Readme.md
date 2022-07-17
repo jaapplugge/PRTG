@@ -1,6 +1,6 @@
-# **.SENSOR** Get-SCCMSCEP_Alerts
+# **.SENSOR** Get-SCCMSCEPAlerts
 
-![Screenshot header](./Screenshot_01.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPAlerts/Screenshot_01.png)
 
 ## **.DESCRIPTION**
 
@@ -10,7 +10,7 @@ connects to the SCCM siteserver, and reads out the status alerts on the monitori
 It will check for *malware detected*, *Repeated detections* en *Multiple detections*;
 each of them has a seperate channel in the ChannelConfiguration.
 
-![Screenshot](./Screenshot_02.png)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPAlerts/Screenshot_02.png)
 
 ## **.FILES**
 
@@ -31,7 +31,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPAlerts/Screenshot_03.JPG)
 
 ## **.ME**
 

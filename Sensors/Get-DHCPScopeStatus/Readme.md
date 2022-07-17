@@ -1,6 +1,6 @@
 # **.SENSOR** Get-DHCPScopeStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-DHCPScopeStatus/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 

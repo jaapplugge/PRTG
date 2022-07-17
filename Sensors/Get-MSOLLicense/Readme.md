@@ -1,6 +1,6 @@
-# **.SENSOR** Get-MSOL_License_Sensor
+# **.SENSOR** Get-MSOLLicense
 
-![Screenshot header](./Screenshot_00.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-MSOLLicense/Screenshot_00.png)
 
 ## **.DESCRIPTION**
 
@@ -8,7 +8,7 @@ This script is meant to be used as PRTG-sensor. It connects to Office 365 with t
 using a serviceAccount (without MFA enabled). It there collects all different licenses available in the
 tennant. These are compaired to the channels in the ChannelConfiguration XML-file.
 
-Each license has two channels: 
+Each license has two channels:
 
 * Licentienaam - Total licenses
 * Licentienaam - Free licenses
@@ -23,7 +23,7 @@ shown in the output of the sensor (when sensor is green).
 Since MSOL powershell can only be loaded in an x64 Powershell, this sensor needs powershell x64 to run.
 The Get-MSOLLicense_runner.ps1 starts the x64 process.
 
-![Screenshot](./Screenshot_01.png)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-MSOLLicense/Screenshot_01.PNG)
 
 ## **.FILES**
 

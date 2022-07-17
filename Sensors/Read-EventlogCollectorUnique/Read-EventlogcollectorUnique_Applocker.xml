@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<prtg>
+        <result>
+                <channel>Applocker - EXE and DLL</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>*[System[Provider[@Name='Microsoft-Windows-AppLocker'] and (Level=1  or Level=2) and (Channel='Microsoft-Windows-AppLocker/EXE and DLL') and TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Applocker - MSI and Script</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>*[System[Provider[@Name='Microsoft-Windows-AppLocker'] and (Level=1  or Level=2) and (Channel='Microsoft-Windows-AppLocker/MSI and Script') and TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Applocker - Packaged app-Deployment</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>*[System[Provider[@Name='Microsoft-Windows-AppLocker'] and (Level=1  or Level=2) and (Channel='Microsoft-Windows-AppLocker/Packaged app-Deployment') and TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]</Query>
+                </Custom>
+        </result>
+        <result>
+                <channel>Applocker - Packaged app-Execution</channel>
+                <value>0</value>
+                <unit>Custom</unit>
+                <customunit>Clients in the last 24 hours</customunit>
+                <showChart>1</showChart>
+                <showTable>1</showTable>
+                <float>1</float>
+                <mode>absolute</mode>
+                <LimitMode>0</LimitMode>
+                <LimitMaxError></LimitMaxError>
+                <LimitMaxWarning></LimitMaxWarning>
+                <Custom>
+                        <Eventlog>ForwardedEvents</Eventlog>
+                        <Query>*[System[Provider[@Name='Microsoft-Windows-AppLocker'] and (Level=1  or Level=2) and (Channel='Microsoft-Windows-AppLocker/Packaged app-Execution') and TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]</Query>
+                </Custom>
+        </result>                
+        <warning>0</warning>
+        <error>0</error>
+        <text>tekst</text>
+</prtg>

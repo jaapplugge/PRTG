@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMSiteSystemStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSiteSystemStatus/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -12,7 +12,7 @@ System status - Site status. If checkmark is not green, sensor will post error. 
 **does not** collect reason why, or errormessage; your SCCM admin will have to look for himself in the
 errorlog. Don't worry, he is used to it.
 
-![Screenshot](./Screenshot_02.jpg)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSiteSystemStatus/Screenshot_02.JPG)
 
 ## **.FILES**
 
@@ -33,7 +33,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSiteSystemStatus/Screenshot_03.JPG)
 
 ## **.ME**
 

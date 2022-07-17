@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMComponentStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMComponentStatus/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -24,7 +24,7 @@ personal opinion, It is perfectly possible to keep the sensor green. But it migh
 remove errorvalues or channels you don't plan to act on. You can edit them in the XML. Or you
 can just fix you servers.
 
-![Screenshot](./Screenshot_02.jpg)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMComponentStatus/Screenshot_02.JPG)
 
 ## **.FILES**
 
@@ -45,7 +45,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMComponentStatus/Screenshot_03.JPG)
 
 ## **.ME**
 

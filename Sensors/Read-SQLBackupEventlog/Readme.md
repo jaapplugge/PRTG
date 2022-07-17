@@ -1,6 +1,6 @@
 # **.SENSOR** Read-SQLBackupEventlog
 
-![Screenshot header](./Screenshot_01.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Read-SQLBackupEventlog/Screenshot_01.PNG)
 
 ## **.DESCRIPTION**
 

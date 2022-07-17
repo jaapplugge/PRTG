@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMUpdateStatus
 
-![Screenshot header](./Screenshot_01.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMUpdateStatus/Screenshot_01.png)
 
 ## **.DESCRIPTION**
 

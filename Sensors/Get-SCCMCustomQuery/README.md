@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMCustomQuery
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMCustomQuery/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -28,7 +28,7 @@ can really slow down your PRTG.
 
 Matching XML ChannelConfigurationfiles are included.
 
-![Screenshot](./Screenshot_02.jpg)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMCustomQuery/Screenshot_02.JPG)
 
 ## **.FILES**
 
@@ -49,7 +49,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMCustomQuery/Screenshot_03.JPG)
 
 ## **.ME**
 

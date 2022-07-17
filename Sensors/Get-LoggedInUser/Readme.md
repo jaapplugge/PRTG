@@ -1,6 +1,6 @@
 # **.SENSOR** Get-LoggedInUser
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-LoggedInUser/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 

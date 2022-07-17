@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMADRAlert
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMADRAlert/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -15,7 +15,7 @@ XML-file. This is used to filter alerts to the correct channel. Sensor will only
 ADR's. Sensor does *not* show why a sensor is red; it will not show errormessage or logging.
 The SCCM-admin will have to figure the reason out himself.
 
-![Screenshot adr](./Screenshot_02.jpg)
+![Screenshot adr](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMADRAlert/Screenshot_02.JPG)
 
 ## **.IMPORTANT**
 
@@ -44,7 +44,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMADRAlert/Screenshot_03.JPG)
 
 ## **.ME**
 

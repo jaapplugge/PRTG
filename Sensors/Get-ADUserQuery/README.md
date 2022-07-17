@@ -1,6 +1,6 @@
 # **.SENSOR** Get-ADUserQuery_Sensor
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-ADUserQuery/Screenshot_01.jpg)
 
 ## **.DESCRIPTION**
 

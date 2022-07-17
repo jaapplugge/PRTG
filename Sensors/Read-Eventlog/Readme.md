@@ -1,6 +1,6 @@
 # **.SENSOR** Read-Eventlog
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Read-Eventlog/Screenshot_01.jpg)
 
 ## **.DESCRIPTION**
 

@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMUptime
 
-![Screenshot header](./Screenshot_01.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMUptime/Screenshot_01.png)
 
 ## **.DESCRIPTION**
 
@@ -19,7 +19,7 @@ of the month, it calculates:
 This sensor does not need specific configuration in the ChannelConfiguration XML; one configfile will serve all servers.
 I use it to monitor server reboots (to complete update installation) instead of the default "Windows uptime" sensor.
 
-![Screenshot error](./Screenshot_02.png)
+![Screenshot error](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMUptime/Screenshot_02.png)
 
 ## **.FILES**
 

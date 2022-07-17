@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMTasksequenceStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMTasksequenceStatus/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -29,7 +29,7 @@ channel. I don't have a fix for that (besides upping the errorvalue). Don't use 
 how many computers have been deployed to a specific OS, use Get-SCCMCustomQuery for that. Use this
 sensor to see if nothing failes on your tasksequences.
 
-![Screenshot](./Screenshot_02.jpg)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMTasksequenceStatus/Screenshot_02.JPG)
 
 ## **.FILES**
 
@@ -50,7 +50,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMTasksequenceStatus/Screenshot_03.JPG)
 
 ## **.ME**
 

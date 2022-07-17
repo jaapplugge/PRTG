@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMBaselineStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMBaselineStatus/Screenshot_01.jpg)
 
 ## **.DESCRIPTION**
 
@@ -22,7 +22,7 @@ Error- and warningstate can be set by settings errorvalues on the channels. Thes
 This sensor is especially usefull for making sure all Sccm-managed client have bitlocker enabled,
 have deviceguard enabled, have Defender and Firewall service running etc.
 
-![Screenshot Baselines](./Screenshot_02.jpg)
+![Screenshot Baselines](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMBaselineStatus/Screenshot_02.jpg)
 
 ## **.FILES**
 
@@ -43,7 +43,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMBaselineStatus/Screenshot_03.jpg)
 
 ## **.ME**
 

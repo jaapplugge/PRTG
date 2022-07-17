@@ -1,6 +1,6 @@
 # **.SENSOR** Get-SCCMSCEP_DefinitionStatus
 
-![Screenshot header](./Screenshot_01.png)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPDefinitionStatus/Screenshot_01.png)
 
 ## **.DESCRIPTION**
 
@@ -24,7 +24,7 @@ The collection used must be marked to appear in the SCEP dashboard. There is a c
 
 Sensor does **not** show active alerts on virusses. Get-SCCMScepAlerts is meant for active alerts!
 
-![Screenshot](./Screenshot_02.png)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPDefinitionStatus/Screenshot_02.png)
 
 ## **.FILES**
 
@@ -42,7 +42,7 @@ The following prerequisites should be met:
 * The serviceAccount must have read-access to WMI on the Siteserver
 * The serviceAccount must be at least "ReadOnly Analyst" in SCCM. (Buildin role)
 
-![Screenshot prereq](./Screenshot_03.jpg)
+![Screenshot prereq](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-SCCMSCEPDefinitionStatus/Screenshot_03.JPG)
 
 ## **.ME**
 

@@ -1,6 +1,6 @@
 # **.SENSOR** Get-McAfeeStatus
 
-![Screenshot header](./Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-McAfeeStatus/Screenshot_01.jpg)
 
 ## **.DESCRIPTION**
 
@@ -19,7 +19,7 @@ Since these are x64, this sensor needs powershell x64 to run. The Get-McAfeeStat
 For monitoring Virus-alerts, a configurationtemplate is added to the Read-Eventlog sensor, listing the events to monitor
 through eventlog-monitoring.
 
-![Screenshot macafee](./Screenshot_02.jpg)
+![Screenshot macafee](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-McAfeeStatus/Screenshot_02.jpg)
 
 ## **.FILES**
 
