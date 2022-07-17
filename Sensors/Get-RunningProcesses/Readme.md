@@ -1,6 +1,6 @@
 # **.SENSOR** Get-RunningProcesses
 
-![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-RunningProcesses/Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Get-RunningProcesses/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
