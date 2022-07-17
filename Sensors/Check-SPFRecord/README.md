@@ -1,6 +1,6 @@
 # **.SENSOR** Check-SPFRecord_Sensor
 
-![Screenshot header](Screenshot_01.jpg)
+![Screenshot header](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Check-SPFRecord/Screenshot_01.JPG)
 
 ## **.DESCRIPTION**
 
@@ -28,7 +28,7 @@ completed, syntax is incorrect)
 If in error, first error will be shown in text. If no errors, first warning. Every result will be posted in a
 seperate channel (based on channel configuration XML file)
 
-![Screenshot](./Screenshot_02.jpg)
+![Screenshot](https://github.com/jaapplugge/PRTG/blob/main/Sensors/Check-SPFRecord/Screenshot_02.jpg)
 
 ## **.TO-DO**
 
