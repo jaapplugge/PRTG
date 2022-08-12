@@ -1,7 +1,7 @@
 # **.REPO** PRTG-Sensoren
 
 This repository contains PRTG-sensors I've written the last couple of years. They are all powershell based sensors, written for monitoring
-Window-based enviroments. A lot of them are SCCM / clientmanagement oriented.
+Window-based enviroments. A lot of them are SCCM / clientmanagement oriented. *New.. added a bunch of Citrix sensors*
 
 Most of the sensors are EXE/XML sensors, and use an XML-formatted ChannelConfigurationfile, next to a powershell-script.
 
@@ -22,6 +22,18 @@ This repo contains all PRTG-sensors I've written the last years, for monitoring 
     *This sensor checks the SPF of an emailaddress based on checks performed by [MXToolbox](https://mxtoolbox.com), and returns result to PRTG.*
 * **Get-ADUserQuery**
     *This sensor connects to an ActiveDirectory domain, and looks for users matching an ldap-query. This sensor is especially usefull for monitoring (abuse of) adminAccounts in an ActiveDirectory domain.*
+* **Get-CitrixAvgLoginTime** *new*
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and posts average logintimes for a Citrix deliveryGroup.*
+* *new* **Get-CitrixDeliveryGroupServers** 
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and reports on all servers in a DeliveryGroup.*
+* *new* **Get-CitrixDeliveryGroupSessions** 
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and reports on all sessions to a Citrix deliveryGroup.*
+* *new* **Get-CitrixLoadIndex**
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and posts average loadindex for all servers in a Citrix deliveryGroup.*
+* *new* **Get-CitrixServerSessions**
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and reports on the sessions to one specific CitrixServer.*
+* *new* **Get-CitrixServerState**
+    *This sensor connects to the odatafeed of a Citrix DeliveryController, and reports on the serverstate of one specific CitrixServer*
 * **Get-DellWaranty_Multiple_sensor**
     *This sensor uses the Dell Techsupport api to monitor how many days of support are left on Dell serverhardware*
 * **Get-DHCPScopeStatus**
