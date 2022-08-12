@@ -19,6 +19,13 @@
     - Test-PRTGGraphApiToken
     - Write-PRTGresult
     - Write-PRTGChannel
+    - Get-PRTGCTXInfo
+    - Get-PRTGCitrixVM
+    - Get-PRTGCTXDeliveryGroupID
+    - Get-PRTGCTXVMinDeliveryGroup
+    - Get-PRTGCTXVMLoadIndex
+    - Get-PRTGCTXSessionInfo
+    - Get-PRTGCTXLogonDuration
 
     - Get-DellAccessToken
     - Get-DellWarantyInfo
@@ -2203,4 +2210,410 @@ Function New-PRTGPSSession {
         Throw $("`n`n" + ($ReturnMessage -join "`n"))
     }
 }
+
+##Function Get-PRTGCTXInfo
+#Function for importing a configuration file, either XML or JSON, for use in PRTG.
+Function Get-PRTGCTXInfo {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $Query,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $Endpoint
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXInfo"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : Query  : $Query"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXInfo"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : Query  : $Query"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    
+    ##build Hashtable as splat
+    $Uri = "http://$DeliveryController/Citrix/Monitor/OData/v3/Data/DesktopGroups?`$format=json&filter=(Name eq '$GroupName')&`$select=Id,Name"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri"
+
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXInfo not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXInfo not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
+##Function Get-PRTGCitrixVM
+# Function to collect a Citrix VM
+Function Get-PRTGCitrixVM {
+    [cmdletbinding()] Param (
+        [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+        [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+        [Parameter(Mandatory=$true,Position=3 )] [String] $MachineName
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCitrixVM"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : MachineID  : $MachineName"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCitrixVM"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : MachineID  : $MachineName"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+
+    
+    ##build Hashtable as splat
+    $Uri = "http://$Server/Citrix/Monitor/OData/v3/Data/Machines()?`$format=json&`$filter=(HostedMachineName eq '$MachineName')"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri" 
+
+    ##Collecting data via restMethod
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCitrixVM not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCitrixVM not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
+##Function Get-PRTGCTXDeliveryGroupID
+#Function for Collecting the DeliveryGroupID for a deliveryGroup in Citrix
+Function Get-PRTGCTXDeliveryGroupID {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $GroupName
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXDeliveryGroupID"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : GroupName  : $GroupName"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXDeliveryGroupID"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : GroupName  : $GroupName"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    
+    ##build Hashtable as splat
+    $Uri = "http://$Server/Citrix/Monitor/OData/v3/Data/DesktopGroups?`$format=json&`$filter=(Name eq '$GroupName')&`$select=Name,Id"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri"
+
+    ##Collecting data via restMethod
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXDeliveryGroupID not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXDeliveryGroupID not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
+##Function Get-PRTGCTXVMinDeliveryGroup
+#Function for Collecting the Citrix VM's in a DeliveryGroup in Citrix
+Function Get-PRTGCTXVMinDeliveryGroup {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $GroupID
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXVMinDeliveryGroup"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : GroupID: $GroupID"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXVMinDeliveryGroup"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : GroupID: $GroupID"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    
+    ##build Hashtable as splat
+    $Uri = "http://$Server/Citrix/Monitor/OData/v3/Data/Machines()?`$format=json&`$filter=(DesktopGroupId eq guid'$GroupID')"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri" 
+
+    ##Collecting data via restMethod
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
+##Function Get-PRTGCTXVMLoadIndex
+#Function for Collecting loadIndexes for a Citrix VM
+Function Get-PRTGCTXVMLoadIndex {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $MachineID
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXVMLoadIndex"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : MachineID  : $MachineID"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXVMLoadIndex"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : MachineID  : $MachineID"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+
+    ##build Hashtable as splat
+    $Uri = "http://$Server/Citrix/Monitor/OData/v3/Data/LoadIndexSummaries?`$format=json&`$filter=(MachineId eq guid'$MachineID') and (Granularity eq 60)&`$orderby=CreatedDate desc&`$top=1"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri" 
+ 
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXVMLoadIndex not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXVMLoadIndex not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}  
+
+##Function Get-PRTGCTXSessionInfo
+#Function to collect all sessioninfo from a Citrix-server
+Function Get-PRTGCTXSessionInfo {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $CitrixServerID,
+            [Parameter(Mandatory=$false)] [String] $TimeSpan = 24
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXSessionInfo"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : CitrixServer: $CitrixServerID"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    Write-Verbose     "$TimeStamp : PARAM : Timespan   : $Timespan hours"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXSessionInfo"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : CitrixServer: $CitrixServerID"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$TimeStamp : PARAM : Timespan   : $Timespan hours"
+
+    ##build Hashtable as splat
+    $Uri = "http://$DeliveryController/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null))"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri" 
+
+    ##Collecting data via restMethod
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
+##Function Get-PRTGCTXLogonDuration
+#Function to collect all LogonDurations for all usersession on a CitrixServer
+Function Get-PRTGCTXLogonDuration {
+    [cmdletbinding()] Param (
+            [Parameter(Mandatory=$true,Position=1 )] [String]  $Server,
+            [Parameter(Mandatory=$true,Position=2 )] [PSCredential] $Credential,
+            [Parameter(Mandatory=$true,Position=3 )] [String] $CitrixServerID,
+            [Parameter(Mandatory=$false)] [String] $TimeSpan = 1
+    )
+    ##Variables
+    [Boolean]  $Boolean_Success = $true
+    [Array]    $ReturnMessage   = @()
+    [String]   $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
+    
+    Write-Verbose     "$Timestamp : FUNCTION: Get-PRTGCTXLogonDuration"
+    Write-Verbose     "$TimeStamp : PARAM : Server : $Server"
+    Write-Verbose     "$TimeStamp : PARAM : CitrixServer: $CitrixServerID"
+    Write-Verbose     "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    Write-Verbose     "$TimeStamp : PARAM : Timespan   : $Timespan hours"
+    $ReturnMessage += "$Timestamp : FUNCTION: Get-PRTGCTXLogonDuration"
+    $ReturnMessage += "$TimeStamp : PARAM : Server : $Server"
+    $ReturnMessage += "$TimeStamp : PARAM : CitrixServer: $CitrixServerID"
+    $ReturnMessage += "$TimeStamp : PARAM : Credential : $($Credential.UserName)"
+    $ReturnMessage += "$TimeStamp : PARAM : Timespan   : $Timespan hours"
+
+    ##build Hashtable as splat
+    $Uri = "http://$DeliveryController/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null)) and (LogOnDuration ne null)&`$select=LogOnDuration"
+    [HashTable] $RestSplat = @{
+        "Uri" = $uri
+        "Credential" = $Credential
+    }
+    Write-Verbose     "$TimeStamp : LOG   : Using URI $Uri"
+    $ReturnMessage += "$Timestamp : LOG   : Using URI $Uri" 
+
+    ##Collecting data via restMethod
+    Try {
+        $Respons = Invoke-RestMethod @RestSplat
+        Write-Verbose     "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+        $ReturnMessage += "$TimeStamp : LOG   : Collected respons via RestCall to $uri"
+    } Catch {
+        Write-Error       "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        $ReturnMessage += "$TimeStamp : ERROR : Could not collect data from DeliveryController $Server"
+        Write-Error       "$TimeStamp : ERROR : $_.Exception.Message"
+        $ReturnMessage += "$TimeStamp : ERROR : $_.Exception.Message"
+        $Boolean_Success -eq $false
+    }
+
+    ## Returning..
+    [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
+    If ($Boolean_Success -eq $true) {
+        Write-Verbose      "$Timestamp : LOG   : Returning.."
+        $ReturnMessage  += "$Timestamp : LOG   : Returning.."
+        Return $Respons.value
+    } Else {
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+    }
+}
+
 Export-ModuleMember -Function * -Alias *

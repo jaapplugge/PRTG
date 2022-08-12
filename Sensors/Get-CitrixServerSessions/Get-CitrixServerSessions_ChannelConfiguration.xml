@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Usersessions in the last 24h</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Active Usersessions in the last 24h</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>    
+    <result>
+        <channel>Sessions with Status unknown</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+     <result>
+        <channel>Sessions with Status Connected</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Disconnected</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Terminated</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>  
+    <result>
+        <channel>Sessions with Status PreparingSession</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Active</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Reconnecting</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status NonBrokeredSession</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Other</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Sessions with Status Pending</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>   
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

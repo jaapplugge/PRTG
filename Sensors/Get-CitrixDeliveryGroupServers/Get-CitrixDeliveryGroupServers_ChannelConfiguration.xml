@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Servers working</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMinWarning>1</LimitMinWarning>
+        <LimitMinError>0</LimitMinError>
+    </result>
+    <result>
+        <channel>Servers in MaintenanceMode</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result>
+    <result>
+        <channel>Servers pending update</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result> 
+    <result>
+        <channel>Servers preparing..</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result>   
+    <result>
+        <channel>Servers powered off</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result> 
+    <result>
+        <channel>Servers unregistered</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result>   
+    <result>
+        <channel>Servers total</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>servers</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0.99</LimitMode>
+        <LimitMaxWarning>1</LimitMaxWarning>
+    </result>               
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

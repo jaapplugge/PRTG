@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Average LoginDuration</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sec</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning>300</LimitMaxWarning>
+        <LimitMaxError>360</LimitMaxError>
+    </result>
+    <result>
+        <channel>Total no of sessions</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>CTXServer01</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sec</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning>300</LimitMaxWarning>
+        <LimitMaxError>360</LimitMaxError>
+    </result>
+    <result>
+        <channel>CTXServer02</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sec</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>1</LimitMode>
+        <LimitMaxWarning>300</LimitMaxWarning>
+        <LimitMaxError>360</LimitMaxError>
+    </result>        
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>

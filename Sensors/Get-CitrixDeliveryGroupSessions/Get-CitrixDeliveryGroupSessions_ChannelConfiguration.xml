@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<prtg>
+    <result>
+        <channel>Total sessions (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status unknown (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+     <result>
+        <channel>Status connected (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status disconnected (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status terminated (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>  
+    <result>
+        <channel>Status PreparingSession (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Active (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Reconnecting (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status NonBrokeredSession (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Other (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Pending (1h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>   
+    <result>
+        <channel>Total sessions (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status unknown (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+     <result>
+        <channel>Status connected (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status disconnected (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status terminated (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>  
+    <result>
+        <channel>Status PreparingSession (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Active (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Reconnecting (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status NonBrokeredSession (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Other (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>
+    <result>
+        <channel>Status Pending (24h)</channel>
+        <value>0</value>
+        <unit>Custom</unit>
+        <customunit>sessions</customunit>
+        <showChart>1</showChart>
+        <showTable>1</showTable>
+        <float>0</float>
+        <mode>absolute</mode>
+        <LimitMode>0</LimitMode>
+    </result>                                    
+    <warning>0</warning>
+    <error>0</error>
+    <text>tekst</text>
+</prtg>
