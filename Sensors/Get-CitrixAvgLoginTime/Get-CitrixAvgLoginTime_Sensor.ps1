@@ -65,7 +65,7 @@ https://github.com/jaapplugge/PRTGModule
         [Parameter(Mandatory=$true,Position=2)][String]$DeliveryGroup,
         [Parameter(Mandatory=$false)][String]$Username,
         [Parameter(Mandatory=$false)][String]$Password,
-        [Parameter(Mandatory=$false)][Int32] $Interval = 1
+        [Parameter(Mandatory=$false)][int] $Interval = 1
 )
 ## Variables
 [Boolean]  $Boolean_Exit    = $False
@@ -82,10 +82,10 @@ https://github.com/jaapplugge/PRTGModule
 
 [String]   $GroupID = $null
 [PSObject] $Channel = $null
-[Int32]    $TotalSessions  = 0
-[Int32]    $Avg_duration   = 0
-[Int32]    $TotalDuration  = 0
-[Int32]    $ServerDuration = 0
+[int]    $TotalSessions  = 0
+[int]    $Avg_duration   = 0
+[int]    $TotalDuration  = 0
+[int]    $ServerDuration = 0
 [Array]    $DurationArray  = @()
 
 Write-Verbose     "SENSOR:$Command"
@@ -185,43 +185,52 @@ If ($Boolean_Exit -eq $False) {
     Write-Verbose "$TimeStamp : LOG   : Looping through VMArray."
     Foreach ($VM in $Array_VM) {
         [Boolean] $Boolean_Skip   = $False
-        [Int32]   $Avg_duration   = 0
-        [Int32]   $ServerDuration = 0
+        [int]   $Avg_duration   = 0
+        [int]   $ServerDuration = 0
 
         [Array] $DurationArray = @()
-        Write-Verbose "$TimeStamp : LOG   : Using VM $($VM.Name)."
+        If ($VM.HostedMachineName) {
+            Write-Verbose "$TimeStamp : LOG   : Using VM $($VM.HostedMachineName)."
+        } else {
+            Write-Verbose "$TimeStamp : LOG   : No HostedMachineName found, skipping.."
+            $Boolean_skip -eq $true
+        }
 
         ## Collecting LogonDuration
-        Try {
-            $DurationArray = Get-PRTGCTXLogonDuration -Server $DeliveryController -Credential $Credential -CitrixServerID $($VM.Id) -TimeSpan $Interval | Sort-Object -Property LogonDuration
-            Write-Verbose "$TimeStamp : LOG   : Collected logonDuration for sessions on server $($VM.HostedMachineName) ($($DurationArray.Count))"
-            $TotalSessions += $($DurationArray.Count)
-            Foreach ($Item in $DurationArray.LogOnDuration) { 
-                $ServerDuration += $Item
-                If ($Item -gt $MaxDuration) {
-                    $MaxDuration = $Item
-                    $MaxDurationVM = $($VM.HostedMachineName)
-                    Write-Verbose "$TimeStamp : LOG   : Set max session to $MaxDuration on VM $MaxDurationVM"
+        If ($Boolean_Skip -eq $false) {
+            Try {
+                $DurationArray = Get-PRTGCTXLogonDuration -Server $DeliveryController -Credential $Credential -CitrixServerID $($VM.Id) -TimeSpan $Interval | Sort-Object -Property LogonDuration
+                Write-Verbose "$TimeStamp : LOG   : Collected logonDuration for sessions on server $($VM.HostedMachineName) ($($DurationArray.Count))"
+                $TotalSessions += $($DurationArray.Count)
+                Foreach ($Item in $DurationArray.LogOnDuration) { 
+                    $ServerDuration += $Item
+                    If ($Item -gt $MaxDuration) {
+                        $MaxDuration = $Item
+                        $MaxDurationVM = $($VM.HostedMachineName)
+                        Write-Verbose "$TimeStamp : LOG   : Set max session to $MaxDuration on VM $MaxDurationVM"
+                    }
                 }
+                $TotalDuration += $ServerDuration
+                $Avg_duration = $(If ($DurationArray.Count -gt 0) { ($ServerDuration / $($DurationArray.count))/1000 } Else { 0 })
+                Write-Verbose "$TimeStamp : LOG   : Setting avg duration to $avg_duration"
+            } Catch {
+                Write-Error "$Timestamp : ERROR : Error collecting logonDuration for sessions on VM $($VM.HostedMachineName)."
+                Write-Error "$Timestamp : ERROR : $($_.Exception.Message)."
+                $Output_Message  = "Error collecting logonDuration for sessions on VM $($VM.HostedMachineName)."
+                $Boolean_Info    = $True
+                $Boolean_Skip    = $True
+                $Boolean_Error   = $true
+                $Boolean_Warning = $true
             }
-            $TotalDuration += $ServerDuration
-            $Avg_duration = $(If ($DurationArray.Count -gt 0) { ($ServerDuration / $($DurationArray.count))/1000 } Else { 0 })
-        } Catch {
-            Write-Error "$Timestamp : ERROR : Error collecting logonDuration for sessions on VM $($VM.HostedMachineName)."
-            Write-Error "$Timestamp : ERROR : $($_.Exception.Message)."
-            $Output_Message  = "Error collecting logonDuration for sessions on VM $($VM.HostedMachineName)."
-            $Boolean_Info    = $True
-            $Boolean_Skip    = $True
-            $Boolean_Error   = $true
-            $Boolean_Warning = $true
         }
 
         ## Writing to channel
         If ($Boolean_skip -eq $false) {
+            [PSObject] $Channel = $null
             $Channel = $ChannelConfiguration | Where-Object -FilterScript { $_.channel -eq $($VM.HostedMachineName) }
             If ($Channel) {
                 Write-Verbose "$TimeStamp : LOG   : Collected matching channelObj; writing to PRTG"
-                $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $($VM.HostedMachineName) -Value  $Avg_duration
+                $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $($VM.HostedMachineName) -Value $Avg_duration
                 Write-Verbose "$Timestamp : LOG   : Writing resultcount  $Avg_duration to Channel $($VM.HostedMachineName)."
             } ElseIf ($VM.HostedMachineName) {
                 Write-Verbose "$TimeStamp : LOG   : Found unknown server $($VM.HostedMachineName)"

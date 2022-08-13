@@ -202,9 +202,9 @@ If ($Boolean_Exit -eq $False) {
             $SessionObject_day  = @()
             $SessionObject_hour = @()
             $SessionObject_day  = Get-PRTGCTXSessionInfo -Server $DeliveryController -Credential $Credential -CitrixServerID $($VM.Id)
-            Write-Verbose    "$Timestamp : LOG   : Collected sessions from Citrixserver $($VM.Name) in the last 24h"
+            Write-Verbose    "$Timestamp : LOG   : Collected sessions from Citrixserver $($VM.Name) in the last 24h ($($SessionObject_day.count))"
             $SessionObject_hour = Get-PRTGCTXSessionInfo -Server $DeliveryController -Credential $Credential -CitrixServerID $($VM.Id) -TimeSpan 1
-            Write-Verbose    "$Timestamp : LOG   : Collected sessions from Citrixserver $($VM.Name) in the last 1h"
+            Write-Verbose    "$Timestamp : LOG   : Collected sessions from Citrixserver $($VM.Name) in the last 1h ($($SessionObject_hour.count))"
             $Int_Unknown_1h             += $( ($SessionObject_hour | Where-Object -FilterScript {$_.ConnectionState -eq 0}).count)
             $Int_Connected_1h           += $( ($SessionObject_hour | Where-Object -FilterScript {$_.ConnectionState -eq 1}).count)
             $Int_Disconnected_1h        += $( ($SessionObject_hour | Where-Object -FilterScript {$_.ConnectionState -eq 2}).count)

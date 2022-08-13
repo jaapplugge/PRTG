@@ -118,11 +118,9 @@ Function Write-PRTGResult {
     [Array]  $ReturnMessage = @()
 
     Write-Verbose     "$Timestamp : FUNCTION: Write-PRTGresult"
-    Write-Verbose     "$TimeStamp : PARAM : Configuration : $Filepath"
     Write-Verbose     "$TimeStamp : PARAM : Channel : $Channel"
     Write-Verbose     "$TimeStamp : PARAM : Value   : $Value"
     $ReturnMessage += "$Timestamp : FUNCTION: Write-PRTGresult"
-    $ReturnMessage += "$TimeStamp : PARAM : Configuration : $Filepath"
     $ReturnMessage += "$TimeStamp : PARAM : Channel : $Channel"
     $ReturnMessage += "$TimeStamp : PARAM : Value   : $Value"
 
@@ -143,7 +141,7 @@ Function Write-PRTGResult {
 }
 
 ##Function Write-PRTGChannel (26-05-2020)
-#Function for adding a channgel and values to an XML PRTGConfiguration
+#Function for adding a channel and values to an XML PRTGConfiguration
 Function Write-PRTGChannel {
     [cmdletbinding()] Param (
         [Parameter(Mandatory=$true, Position=1 )] [String] $Channel,
@@ -2522,7 +2520,7 @@ Function Get-PRTGCTXSessionInfo {
     $ReturnMessage += "$TimeStamp : PARAM : Timespan   : $Timespan hours"
 
     ##build Hashtable as splat
-    $Uri = "http://$DeliveryController/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null))"
+    $Uri = "http://$server/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null))"
     [HashTable] $RestSplat = @{
         "Uri" = $uri
         "Credential" = $Credential
@@ -2550,8 +2548,8 @@ Function Get-PRTGCTXSessionInfo {
         $ReturnMessage  += "$Timestamp : LOG   : Returning.."
         Return $Respons.value
     } Else {
-        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
-        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXVMinDeliveryGroup not successfull."
+        Write-Verbose      "$TimeStamp : ERROR : Function Get-PRTGCTXSessionInfo not successfull."
+        $ReturnMessage  += "$TimeStamp : ERROR : Function Get-PRTGCTXSessionInfo not successfull."
         Throw $("`n`n" + ($ReturnMessage -join "`n"))
     }
 }
@@ -2582,7 +2580,7 @@ Function Get-PRTGCTXLogonDuration {
     $ReturnMessage += "$TimeStamp : PARAM : Timespan   : $Timespan hours"
 
     ##build Hashtable as splat
-    $Uri = "http://$DeliveryController/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null)) and (LogOnDuration ne null)&`$select=LogOnDuration"
+    $Uri = "http://$server/Citrix/Monitor/OData/v3/Data/Sessions()?`$format=json&`$filter=(MachineId eq guid'$CitrixserverID') and ((EndDate gt datetime'$(Get-Date $((Get-date).addhours(-1*$TimeSpan)) -format s)') or (EndDate eq null)) and (LogOnDuration ne null)&`$select=LogOnDuration"
     [HashTable] $RestSplat = @{
         "Uri" = $uri
         "Credential" = $Credential

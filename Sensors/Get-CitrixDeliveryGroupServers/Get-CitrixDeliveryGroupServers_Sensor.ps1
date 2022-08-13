@@ -168,7 +168,7 @@ If ($Boolean_Exit -eq $False) {
 [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
 If ($Boolean_Exit -eq $False) {
     Foreach ($VM in $Array_VM) {
-        $Boolean_ok = $true
+        [Boolean] $Boolean_ok = $true
         If ($($VM.Name)) {
             Try {
                 $CTXObject = Get-PRTGCitrixVM -Server $DeliveryController -Credential $Credential -MachineName $($VM.HostedMachineName)

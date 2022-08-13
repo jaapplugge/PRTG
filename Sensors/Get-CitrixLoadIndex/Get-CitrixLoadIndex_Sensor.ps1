@@ -204,7 +204,12 @@ If ($Boolean_Exit -eq $False) {
     Foreach ($VM in $Array_VM) {
         [Boolean]   $Boolean_Skip   = $False
         [int]       $ChannelValue   = 0
-        Write-Verbose "$TimeStamp : LOG   : Using VM $($VM.Name)."
+        If ($VM.HostedMachineName) {
+            Write-Verbose "$TimeStamp : LOG   : Using VM $($VM.HostedMachineName)."
+        } else {
+            Write-Verbose "$TimeStamp : LOG   : No HostedMachineName found, skipping.."
+            $Boolean_skip = $true
+        }
 
         ## Checking if server is unregistered
         If ( ($vm.IsRegistered -eq $true) -and ($Boolean_skip -eq $false) ) {
@@ -237,7 +242,7 @@ If ($Boolean_Exit -eq $False) {
             Try {
                 $LoadIndexObj = Get-PRTGCTXVMLoadIndex -Server $DeliveryController -Credential $Credential -MachineID ($VM.ID)
                 If (!($LoadIndexObj)) {
-                    Write-Verbose "$Timestamp : LOG   : Could not collect LoadIndex for server $($VM.Name), skipping"
+                    Write-Verbose "$Timestamp : LOG   : Could not collect LoadIndex for server $($VM.HostedMachineName), skipping"
                     $Boolean_Skip = $true
                 } Else {
                     $ChannelValue = $LoadIndexObj.SumLoadIndex
@@ -254,7 +259,7 @@ If ($Boolean_Exit -eq $False) {
 
         ## Collect matching channel from ChannelConfig
         $Channel = $ChannelConfiguration | Where-Object -FilterScript { $_.channel -eq $($VM.HostedMachineName) }
-        If ($Channel) {
+        If ( ($Channel) -and ($Boolean_Skip -eq $false) ) {
             Write-Verbose "$TimeStamp : LOG   : Collected matching channelObj; writing to PRTG"
             $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $($VM.HostedMachineName) -Value $ChannelValue
             Write-Verbose "$Timestamp : LOG   : Writing resultcount $ChannelValue to Channel $($VM.HostedMachineName)."
@@ -306,7 +311,7 @@ If ($Boolean_Exit -eq $False) {
 
 ##Calculating Average value
 [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
-If ($Boolean_Exit -eq $True) {
+If ($Boolean_Exit -eq $False) {
     If ($Avg_Count -gt 0) { $Avg_Return = $Avg_value / $Avg_Count } Else { $Avg_Return = 0 }
     $Configuration = Write-PRTGresult -Configuration $Configuration -Channel 'Average' -Value $Avg_Return
 }
@@ -316,7 +321,7 @@ If ($Boolean_Exit -eq $True) {
 If ( ($Boolean_error -eq $false) -and ($Boolean_Warning -eq $fase) -and ($Boolean_info -eq $true) ) {
         $Output_Message = $Outmsg_warn
         Write-Verbose "$TimeStamp : LOG   : setting infomessage $Outmsg_warn"
-} elseif ( ($Boolean_error -eq $false) -and ($Boolean_Warning -eq $fase) -and ($Boolean_info -eq $true) ) {
+} elseif ( ($Boolean_error -eq $false) -and ($Boolean_Warning -eq $false) -and ($Boolean_info -eq $true) ) {
     $Output_Message = "Average loadIndex: $Avg_Return over $Avg_Count servers."
     Write-Verbose "$TimeStamp : LOG   : setting infomessage $Output_Message"
 }

@@ -20,7 +20,7 @@ Mandatory parameter giving the location of the XML-formatted channelconfiguratio
 .PARAMETER DeliveryController
 Mandatory parameter for defining the deliveryController to read from.
 
-.PARAMETER Server
+.PARAMETER CitrixServer
 Mandatory parameter for defining the server to report on.
 
 .PARAMETER Username
@@ -77,6 +77,8 @@ https://github.com/jaapplugge/PRTGModule
 [String]   $Output_Message  = "OK"
 [String]   $LocalComputer   = $($Env:COMPUTERNAME + '.' + $env:USERDNSDOMAIN)
 [XML]      $Configuration   = $null
+
+If ($CitrixServer -like "*.*" ) { $CitrixServer = ($CitrixServer.split('.'))[0] }
 
 Write-Verbose     "SENSOR:$Command"
 Write-Verbose     "---------------------"
@@ -138,8 +140,8 @@ If ($Boolean_Exit -eq $False) {
         $CTXObject = Get-PRTGCitrixVM -Server $DeliveryController -Credential $Credential -MachineName $CitrixServer
         Write-Verbose    "$Timestamp : LOG   : Collected Citrixserver $($CTXObject.Id)"
         If (!($CTXObject)) {
-            Write-Error "$Timestamp : ERROR : Could not find matching CitrixserverObject."
-            $Output_Message = "Could not find matching CitrixserverObject"
+            Write-Error "$Timestamp : ERROR : Could not find matching CitrixserverObject ($CitrixServer)."
+            $Output_Message = "Could not find matching CitrixserverObject! ($CitrixServer)"
             $Boolean_Exit = $true
         }
     } Catch {

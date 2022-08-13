@@ -83,6 +83,8 @@ Write-Verbose     "$Timestamp : LOG   : Username: $env:username"
 Write-Verbose     "$Timestamp : LOG   : Computer: $LocalComputer"
 Write-Verbose     "$Timestamp : LOG   : Session : $( ([System.IntPtr]::Size)*8 )bit Session"
 
+If ($CitrixServer -like "*.*" ) { $CitrixServer = ($CitrixServer.split('.'))[0] }
+
 ##ConnectionState Table
 $ConnectionStateArray = @(
     @{
@@ -193,7 +195,7 @@ If ($Boolean_Exit -eq $False) {
         Write-Verbose    "$Timestamp : LOG   : Collected Citrixserver $($CTXObject.Id)"
         If (!($CTXObject)) {
             Write-Error "$Timestamp : ERROR : Could not find matching CitrixserverObject."
-            $Output_Message = "Could not find matching CitrixserverObject"
+            $Output_Message = "Could not find matching CitrixserverObject ($CitrixServer)"
             $Boolean_Exit = $true
         }
     } Catch {
@@ -264,8 +266,8 @@ If ($Boolean_Exit -eq $false) {
     Foreach ($Channel in $ConnectionStateArray) {
         $SelectedSessions = @()
         $SelectedSessions = $Hour_Session | Where-Object -FilterScript {$_.ConnectionState -eq $($Channel.value)}
-        $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $($Channel.channel) -Value $($Channel.value)
-        Write-Verbose "$TimeStamp : LOG   : Written value $($Channel.value) to channel $($Channel.channel)"
+        $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $($Channel.channel) -Value $($SelectedSessions.count)
+        Write-Verbose "$TimeStamp : LOG   : Written value $($SelectedSessions.count) to channel $($Channel.channel)"
     }
 }
 
