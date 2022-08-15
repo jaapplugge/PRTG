@@ -612,25 +612,27 @@ Function Get-PRTGClientRegistryValue {
     ##Variables
     [String]    $Timestamp       = Get-Date -format yyyy.MM.dd_hh:mm
     [Boolean]   $Boolean_Success = $true
-    [Boolean]   $Boolean_Cred    = $true
+    [Boolean]   $Boolean_Cred    = $false
     [String]    $Name_RegistryProvider = "StdRegProv"
     [String]    $NameSpace             = "root\default"
     [String]    $RegistryValue         = $null
     [String]    $DataTypeValue         = $null
     [PSObject]  $WMIObj                = $null
     [Hashtable] $RegSplat              = @{}   
-    [Array]     $ReturnMessage         = @() 
+    [Array]     $ReturnMessage         = @()
 
     If ( $Credential ) { $Boolean_cred = $true }
 
     [Array] $DataType_Array = @(
         @{
             KeyName = "DWord";
-            Call = "uValue"
+            Call = "uValue";
+            Method = "GetDWORDValue"
         },
         @{
             KeyName = "String";
-            Call = "sValue"
+            Call = "sValue";
+            Method = "GetStringValue"
         }        
     )
 
@@ -683,6 +685,9 @@ Function Get-PRTGClientRegistryValue {
     $ReturnMessage += "$TimeStamp : LOG   : Collecting numeric value for registry hyve."
     $RegValue       = ($Classes_Regkey | Where-Object -FilterScript {$_.ShortName -eq "$Registryhyve"}).value
     $DataTypeValue  = ($DataType_Array | Where-Object -FilterScript {$_.KeyName   -eq "$DataType"}).call
+    $Method         = ($DataType_Array | Where-Object -FilterScript {$_.KeyName   -eq "$DataType"}).method
+    Write-Verbose     "$TimeStamp : LOG   : Collected numeric value for registry hyve.($RegValue, $DataTypeValue, $Method)"
+    $ReturnMessage += "$TimeStamp : LOG   : Collected numeric value for registry hyve.($RegValue, $DataTypeValue, $Method)"
 
     ##Collect registry-setting from WMI with credentials
     If ($Boolean_Success -eq $true) {
@@ -701,7 +706,7 @@ Function Get-PRTGClientRegistryValue {
             $WMIObj = Get-WmiObject @RegSplat | Where-Object -FilterScript { $_.Name -eq $Name_RegistryProvider }
             Write-Verbose      "$TimeStamp : LOG   : Collected registry from WMI."
             $ReturnMessage  += "$TimeStamp : LOG   : Collected registry from WMI."
-            $RegistryValue   = $RegistryWMI_Object.GetStringValue($RegValue,"$Registry","$Name").$DataTypeValue
+            $RegistryValue   = $WMIObj.$($Method)($RegValue,"$Registry","$Name").$DataTypeValue
             Write-Verbose      "$TimeStamp : LOG   : Collected registryvalue $RegistryValue for key $Name on path $Registry."
             $ReturnMessage  += "$TimeStamp : LOG   : Collected registryvalue $RegistryValue for key $Name on path $Registry."
         } Catch {
@@ -722,7 +727,7 @@ Function Get-PRTGClientRegistryValue {
     } Else {
         Write-Verbose     "$Timestamp : ERROR : Function not successfull"
         $ReturnMessage += "$Timestamp : ERROR : Function not successfull"
-        Throw $("`n`n" + ($ReturnMessage -join "`n"))
+        Throw $("`n`n" + ($ReturnMessage -join " `n"))
     }
 }
 
@@ -749,7 +754,7 @@ Function Get-PRTGClientMaintenanceWindow {
     Write-Verbose     "$TimeStamp : PARAM : Server    : $Server"
     Write-Verbose     "$TimeStamp : PARAM : Use Creds : $Boolean_Cred"
     $ReturnMessage += "$TimeStamp : FUNCTION : Get-PRTGClientMaintenanceWindow"
-    $ReturnMessage += "$TimeStamp : PARAM : Server    : $Site"
+    $ReturnMessage += "$TimeStamp : PARAM : Server    : $Server"
     $ReturnMessage += "$TimeStamp : PARAM : Use Creds : $Boolean_Cred"
 
     ##Collect maintenancewindows on client
@@ -803,7 +808,7 @@ Function Get-PRTGClientMaintenanceWindow {
    
     ##Returning
     [String] $Timestamp = Get-Date -format yyyy.MM.dd_hh:mm
-    If ($Boolean_Success -eq $false) {
+    If ($Boolean_Success -eq $true) {
         $Return_object = New-Object -TypeName PSObject -Property @{
             StartTime     = [DateTime] $Next_StartTime
             Endtime       = [DateTime] $Next_EndTime
@@ -835,10 +840,10 @@ Function Get-PRTGClientUpdateStatus {
     [PSObject]  $ReturnObj       = $null
     [Hashtable] $WMISplat        = @{}
 
-    [String]    $Query_Missing   = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status='Missing' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT `"%Beveiligingsinformatie-update%`""
-    [String]    $Query_Installed = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status='Installed' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT `"%Beveiligingsinformatie-update%`""
-    [String]    $Query_Failed    = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status!='Missing' AND Status!='Installed' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT `"%Beveiligingsinformatie-update%`""
-    [Array]     $QueryArray      = @($Query_Missing,$Query_Installed,$Query_Failed)
+    [String]   $Query_Missing   = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status='Missing' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT Title LIKE `"%Beveiligingsinformatie-update%`""
+    [String]   $Query_Installed = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status='Installed' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT Title LIKE `"%Beveiligingsinformatie-update%`""
+    [String]   $Query_Failed    = "Select Title, ScanTime, Status, UniqueID from CCM_UpdateStatus where Status!='Missing' AND Status!='Installed' AND NOT Title LIKE `"Definition%`" AND NOT Title LIKE `"Definitie-update%`" AND NOT Title LIKE `"%Malicious Software Removal Tool%`" AND NOT Title LIKE `"%verwijderen van schadelijke software%`" AND NOT Title LIKE `"%Beveiligingsinformatie-update%`""
+    [Array]    $QueryArray      = @($Query_Missing,$Query_Installed,$Query_Failed)
 
     If ($Credential) { $Boolean_Cred = $true }
 
@@ -875,11 +880,14 @@ Function Get-PRTGClientUpdateStatus {
                 [Array] $WMIResult = @()
                 Write-Verbose      "$TimeStamp : LOG   : Using query $($Query.Substring(0,15))."
                 $ReturnMessage  += "$TimeStamp : LOG   : Using query $($Query.Substring(0,15))."
-                $WMISplat.Query  = $Query
-                $WMIResult       = Get-WmiObject $WMISplat | Sort-Object -Property "Title" -Unique
+                $WMISplat.Query  = "$Query"
+                $WMIResult       = Get-WmiObject @WMISplat | Sort-Object -Property "Title" -Unique
                 Write-Verbose      "$TimeStamp : LOG   : Collected $($WMIResult.Count) updates, adding to resultArray."
                 $ReturnMessage  += "$TimeStamp : LOG   : Collected $($WMIResult.Count) updates, adding to resultArray."                
-                $ResultArray    += $WMIResult
+                $WMIObj = New-Object -TypeName PSObject -Property @{
+                    Updates = [Array] $WMIResult
+                }
+                $ResultArray += $WMIObj
             } Catch {
                 Write-Verbose      "$TimeStamp : ERROR : Could not collect Windows update status from local SCCM client."
                 Write-Verbose      "$TimeStamp : ERROR : $($_.Exception.Message)"
@@ -897,9 +905,9 @@ Function Get-PRTGClientUpdateStatus {
         Write-Verbose      "$TimeStamp : LOG   : Building return-object, and returning."
         $ReturnMessage  += "$TimeStamp : LOG   : Building return-object, and returning."
         $ReturnObj       = New-Object -TypeName PSObject -Property @{
-            Updates_missing    = $ResultArray[0]
-            Updates_installed  = $ResultArray[1]
-            Updates_failed     = $ResultArray[2]
+            Updates_missing    = $ResultArray[0].Updates
+            Updates_installed  = $ResultArray[1].Updates
+            Updates_failed     = $ResultArray[2].Updates
         }
         Return $ReturnObj
     } Else {
@@ -922,7 +930,7 @@ Function Get-PRTGClientLastReboot {
     [Boolean]  $Boolean_Cred     = $false
     [Array]    $ReturnMessage    = $null
     [String]   $Timestamp        = Get-Date -format yyyy.MM.dd_hh:mm
-    [String]   $Query            = "Select lastbootuptime from win32_operatingsystem"
+    [String]   $Query            = "select lastbootuptime from win32_operatingsystem"
     [DateTime] $LastBootTime     = 0
     [String]   $StringTime       = $null
 
@@ -942,8 +950,8 @@ Function Get-PRTGClientLastReboot {
             Write-Verbose     "$TimeStamp : LOG   : Using query $Query."
             $ReturnMessage += "$TimeStamp : LOG   : Using query $Query."
             $WMISplat = @{
-                NameSpace = "Root\Cimv2"
-                Query     = $Query
+                NameSpace    = [String] "Root\Cimv2"
+                Query        = [string] "$Query"
                 ComputerName = $Server
             }
 
@@ -953,7 +961,7 @@ Function Get-PRTGClientLastReboot {
                 $ReturnMessage += "$TimeStamp : LOG   : Added credentials for user $($Credential.UserName)"
                 $Credential     = $null
             }
-            $StringTime      = (Get-WmiObject $WMISplat).LastBootUptime
+            $StringTime      = (Get-WmiObject @WMISplat).LastBootUptime
             Write-Verbose      "$TimeStamp : LOG   : Collected LastBootTime $StringTime"
             $ReturnMessage  += "$TimeStamp : LOG   : Collected LastBootTime $StringTime"
             $LastBootTime    = [System.Management.ManagementDateTimeconverter]::ToDateTime($StringTime)
@@ -1726,6 +1734,13 @@ Function Get-PRTGSccmPatchTuesday {
         Get-Date -Day 1 -Year $((Get-Date).Year) -Hour 3 -Minute 0 -Second 0 -Month $( ( (Get-Date).AddMonths(1)).Month);
     )
     Write-Verbose     "$TimeStamp : LOG   : Collected first day of prev. month, current and next"
+    Write-Verbose     "$TimeStamp : LOG   : Correcting for december / januari"
+    If ($1stday_Array[0].Month -eq 12) {
+        $1stday_Array[0] = ($1stday_Array[0]).AddYears(-1)
+    }
+    If ($1stday_Array[2].Month -eq 1) {
+        $1stday_Array[2] = ($1stday_Array[2]).AddYears(1)
+    }
    
     ##Collecting the second tuesday
     Write-Verbose     "$TimeStamp : LOG   : Looping to count to second day of that month."
@@ -1745,13 +1760,13 @@ Function Get-PRTGSccmPatchTuesday {
     }
 
     ##Returning based on either next or previous month
-    If ( ($Boolean_Prev -eq $true) -and ($ResultArray[1] -le $Current) ) {
+    If ( ($Boolean_Next -eq $false) -and ($ResultArray[1] -le $Current) ) {
         Write-Verbose "$TimeStamp : LOG   : Returning previous patchtuesday"
         Return $ResultArray[1]
-    } ElseIf ( ($Boolean_Prev -eq $true) -and ($ResultArray[1] -gt $Current) ) {
+    } ElseIf ( ($Boolean_Next -eq $false) -and ($ResultArray[1] -gt $Current) ) {
         Write-Verbose "$TimeStamp : LOG   : Returning previous patchtuesday"
         Return $ResultArray[0]
-    } ElseIf ( ($Boolean_Prev -eq $false) -and ($ResultArray[1] -gt $Current) ) {
+    } ElseIf ( ($Boolean_Next -eq $true) -and ($ResultArray[1] -gt $Current) ) {
         Write-Verbose "$TimeStamp : LOG   : Returning next patchtuesday"
         Return $ResultArray[1]
     } Else {
@@ -1943,12 +1958,12 @@ Function Get-PRTGClientUserProfileSize {
 #Function for collecting remote eventlogs from a client in PRTG
 Function Get-PRTGClientEventlog {
     [cmdletbinding()] Param (
-        [Parameter(Mandatory=$true)]  [PSObject] $Computer,
-        [Parameter(Mandatory=$true)]  [String]   $Eventlog,
-        [Parameter(Mandatory=$false)] [String]   $Source,
-        [Parameter(Mandatory=$false)] [String]   $EventID,
-        [Parameter(Mandatory=$false)] [String]   $TimeFrame,
-        [Parameter(Mandatory=$false)] [String]   $Query,
+        [Parameter(Mandatory=$true)]  [String] $Computer,
+        [Parameter(Mandatory=$true)]  [String] $Eventlog,
+        [Parameter(Mandatory=$false)] [String] $Source,
+        [Parameter(Mandatory=$false)] [String] $EventID,
+        [Parameter(Mandatory=$false)] [String] $TimeFrame,
+        [Parameter(Mandatory=$false)] [String] $Query,
         [Parameter(Mandatory=$false)] [PSCredential] $Credential
     )
     ##Variables
@@ -1961,28 +1976,28 @@ Function Get-PRTGClientEventlog {
     [Boolean]   $Boolean_TimeStamp = $false
     
     [PSObject]  $ReturnObj       = $null
-    [Array]     $Events          = @()
+    [Array]     $EventArray      = @()
     [Array]     $ReturnMessage   = @()
     
     If ($Credential) {$Boolean_Cred      = $true}
     If ($Query)      {$Boolean_Query     = $true}
     If ($TimeStamp)  {$Boolean_TimeStamp = $true}
     If ($LastEvent)  {$Boolean_LE        = $true}
-    If (($Computer -eq $env:COMPUTERNAME) -or ($Computer = $($env:ComputerName + '.' + $env:USERDNSDOMAIN))) {
+    If (($Computer -eq $env:COMPUTERNAME) -or ($Computer -eq $($env:ComputerName + '.' + $env:USERDNSDOMAIN))) {
         $Boolean_Local = $true
     }
     [String] $X_path = @"
     <QueryList>
-        <Query Id   = `"0`" Path = `"$Eventlog`">
+        <Query Id = `"0`" Path = `"$Eventlog`">
             <Select Path = `"$Eventlog`"> 
                 !QUERY!
             </Select>
         </Query>
     </QueryList>
 "@
-    [String] $X_Path_1 = "* [System[Provider    [@Name       = `'$Source`'   ]]]"
-    [String] $X_Path_2 = "[System[TimeCreated [@SystemTime > `'$Timeframe`']]]"
-    [String] $X_Path_3 = "[System[EventID                  = `'$EventID`'  ]]"
+    [String] $X_Path_1 = "* [System[Provider[@Name = `'$Source`']]]"
+    [String] $X_Path_2 = "[System[TimeCreated[@SystemTime > `'$Timeframe`']]]"
+    [String] $X_Path_3 = "[System[EventID = `'$EventID`']]"
 
     
     Write-Verbose     "$TimeStamp : FUNCTION : Get-PRTGClientEventlog"
@@ -2027,7 +2042,8 @@ Function Get-PRTGClientEventlog {
 
     ##Building Xpath-query
     If ( ($Boolean_Success -eq $true) -and ($Boolean_Query -eq $true) ) {
-        $X_path = $X_path -replace '!QUERY!', $Query
+        #$X_path = $X_path -replace '!QUERY!', $Query
+        $X_path = $Query
         Write-Verbose     "$TimeStamp : LOG   : Constructed splat based on query"
         $ReturnMessage += "$TimeStamp : LOG   : Constructed splat based on query"
     } ElseIf ( ($Boolean_Success -eq $true) -and ($Boolean_Query -eq $false) -and ($Boolean_TimeStamp -eq $true) ) {
@@ -2070,11 +2086,11 @@ Function Get-PRTGClientEventlog {
         Try {
             $EventArray = Invoke-Command -Session $Session -ScriptBlock {
                 [Array] $SessionEvents = @()
-                $SessionEvents = Get-WinEvent -LogName "$Using:Eventlog" -FilterXPath $Using:X_path -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+                $SessionEvents = Get-WinEvent -LogName "$Using:Eventlog" -FilterXPath "$Using:X_path" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
                 Return $SessionEvents
             }
-            Write-Verbose     "$TimeStamp : LOG   : Collected events from remote computer."
-            $ReturnMessage += "$TimeStamp : LOG   : Collected events from remote computer."               
+            Write-Verbose     "$TimeStamp : LOG   : Collected $($EventArray.Count) events from remote computer."
+            $ReturnMessage += "$TimeStamp : LOG   : Collected $($EventArray.Count) events from remote computer."               
         } Catch {
             Write-Verbose     "$TimeStamp : ERROR : Cannot query remote eventlog."
             Write-Verbose     "$TimeStamp : ERROR : $($_.Exception.Message)."
@@ -2096,9 +2112,9 @@ Function Get-PRTGClientEventlog {
     ##Collecting local events
     If ( ($Boolean_Success -eq $true) -and ($Boolean_Local -eq $true) ) {
         Try {
-            $EventArray = Get-WinEvent -LogName "$Eventlog" -FilterXPath $X_path
-            Write-Verbose     "$TimeStamp : LOG   : Collected events from local computer."
-            $ReturnMessage += "$TimeStamp : LOG   : Collected events from local computer."             
+            $EventArray = Get-WinEvent -LogName "$Eventlog" -FilterXPath $X_path -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+            Write-Verbose     "$TimeStamp : LOG   : Collected events from local computer ($($EventArray.Count) Events)."
+            $ReturnMessage += "$TimeStamp : LOG   : Collected events from local computer ($($EventArray.Count) Events)."
         } Catch {
             Write-Verbose     "$TimeStamp : ERROR : Cannot query local eventlog."
             Write-Verbose     "$TimeStamp : ERROR : $($_.Exception.Message)."
@@ -2116,7 +2132,7 @@ Function Get-PRTGClientEventlog {
         $ReturnObj       = New-Object -TypeName PSObject -Property @{
             Result = [Boolean] $Boolean_Success
             Events = [Array]   $EventArray
-            Count  = [Int]     $($Events.Count)
+            ResultCount = [Int] $($EventArray.Count)
         }
         Return $ReturnObj
     } Else {
@@ -2614,4 +2630,33 @@ Function Get-PRTGCTXLogonDuration {
     }
 }
 
-Export-ModuleMember -Function * -Alias *
+##Exporting the functions
+Export-ModuleMember -Function Connect-PRTGtoSCCMviaWMI
+Export-ModuleMember -Function Connect-PRTGtoSCCMforSiteCode
+Export-ModuleMember -Function Get-PRTGClientMaintenanceWindow
+Export-ModuleMember -Function Get-PRTGClientUpdateStatus
+Export-ModuleMember -Function Get-PRTGClientRegistryValue
+Export-ModuleMember -Function Get-PRTGClientLastReboot
+Export-ModuleMember -Function Get-PRTGClientUserProfileSize
+Export-ModuleMember -Function Get-PRTGClientEventlog
+Export-ModuleMember -Function Get-PRTGDHCPScopeStatistics
+Export-ModuleMember -Function Get-PRTGGraphApiToken
+Export-ModuleMember -Function Get-PRTGIPAddressesInSubnet
+Export-ModuleMember -Function Get-PRTGSPFRecord
+Export-ModuleMember -Function Get-PRTGSccmPatchTuesday
+Export-ModuleMember -Function Import-PRTGConfigFile
+Export-ModuleMember -Function Invoke-PRTGGraphApiCall
+Export-ModuleMember -Function New-PRTGPSSession
+Export-ModuleMember -Function Test-PRTGGraphApiToken
+Export-ModuleMember -Function Write-PRTGresult
+Export-ModuleMember -Function Write-PRTGChannel
+Export-ModuleMember -Function Get-DellAccessToken
+Export-ModuleMember -Function Get-DellWarantyInfo
+Export-ModuleMember -Function Get-PRTGCTXInfo
+Export-ModuleMember -Function Get-PRTGCitrixVM
+Export-ModuleMember -Function Get-PRTGCTXDeliveryGroupID
+Export-ModuleMember -Function Get-PRTGCTXVMinDeliveryGroup
+Export-ModuleMember -Function Get-PRTGCTXVMLoadIndex
+Export-ModuleMember -Function Get-PRTGCTXSessionInfo
+Export-ModuleMember -Function Get-PRTGCTXLogonDuration
+

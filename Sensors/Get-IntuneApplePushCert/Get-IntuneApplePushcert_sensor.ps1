@@ -7,7 +7,7 @@ This script is ment to be used as PRTG-sensor. It connects to the Graph API, pub
 Azure, and calls this api with a query for the Apple Push Notification Certificate. This certificate is used  
 connect to the phones from the Intuneportal and push settings, applications. It will expire every year.
 
-For connecting, the an application must be available on Azure for the Graph Api. For this sensor, this api is
+For connecting, an application must be available on Azure for the Graph Api. For this sensor, this api is
 secured by a shared secret.
 
 .PARAMETER TennantID

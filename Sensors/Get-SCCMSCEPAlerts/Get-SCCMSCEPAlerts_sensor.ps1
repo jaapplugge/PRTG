@@ -1,5 +1,5 @@
 ﻿<#
-.SYNOPSIS Get-SCCMSCEPAlerts
+.SYNOPSIS
 PRTG-Sensor for alerting whether a Virus / threat is detected in SCEP by SCCM.
 
 .DESCRIPTION
@@ -56,8 +56,8 @@ https://github.com/jaapplugge/PRTGModule
         [Parameter(Mandatory=$True,Position=1)]  [String] $Siteserver,
         [Parameter(Mandatory=$True,Position=2)]  [String] $Site,
         [Parameter(Mandatory=$True,Position=3)]  [String] $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String] $Username,
-        [Parameter(Mandatory=$False,Position=5)] [String] $Password
+        [Parameter(Mandatory=$False)] [String] $Username,
+        [Parameter(Mandatory=$False)] [String] $Password
 )
 ## Variables
 [Boolean]   $Boolean_Exit    = $False

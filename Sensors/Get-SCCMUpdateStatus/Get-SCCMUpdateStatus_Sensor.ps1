@@ -1,5 +1,5 @@
 <#
-.SYNOPSIS Get-SCCMUpdateStatusSensor
+.SYNOPSIS
 
 PRTG-Sensor for checking the Status for Windows updates on SCCM Managed servers
 

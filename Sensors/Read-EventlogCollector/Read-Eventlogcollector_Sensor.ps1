@@ -68,9 +68,9 @@ https://github.com/jaapplugge/PRTGModule
 ## Parameters
 [cmdletbinding()] Param (
         [Parameter(Mandatory=$True ,Position=1)] [String]  $Server,
-        [Parameter(Mandatory=$True ,Position=3)] [String]  $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String]  $Username = $null,
-        [Parameter(Mandatory=$False,Position=5)] [String]  $Password = $null
+        [Parameter(Mandatory=$True ,Position=2)] [String]  $Filename,
+        [Parameter(Mandatory=$False)] [String]  $Username = $null,
+        [Parameter(Mandatory=$False)] [String]  $Password = $null
 )
 ## Variables
 [Boolean]  $Boolean_Exit    = $False
@@ -135,7 +135,7 @@ $SecureString = $null
 [String] $Timestamp        = Get-Date -format yyyy.MM.dd_hh:mm
 If ($Boolean_Exit -eq $False) {
     Try {
-        $Configuration          = Import-XMLConfigurationFile -FilePath $Filename
+        $Configuration          = Import-PRTGConfigFile -FilePath $Filename -FileType 'XML'
         $ChannelConfiguration   = $Configuration.prtg.result
         Write-Verbose             "$Timestamp : LOG   : Imported configuration."
     } Catch {
@@ -171,8 +171,8 @@ If ($Boolean_Exit -eq $False) {
             Write-Verbose   "$Timestamp : LOG   : Channelname : $ChannelName"
             Write-Verbose   "$Timestamp : LOG   : Query       : $Query"
             Write-Verbose   "$Timestamp : LOG   : Eventlog    : $Eventlog"
-            Write-Verbose   "$Timestamp : LOG   : LimitMaxWarning : $LimitMaxWarning"
-            Write-Verbose   "$Timestamp : LOG   : LimitMaxError   : $LimitMaxError"
+            Write-Verbose   "$Timestamp : LOG   : LimitMaxWarning : $WarningValue"
+            Write-Verbose   "$Timestamp : LOG   : LimitMaxError   : $ErrorValue"
         } Catch {
             $Boolean_Skip = $True
             $Boolean_Exit = $True
@@ -198,7 +198,7 @@ If ($Boolean_Exit -eq $False) {
                 }
             } Else {
                 Try {
-                    $ReturnValue = Get-PRTGClientEventlog -Computer $Server -Query $Query -Eventlog $Eventlog -Credential $Credential -Verbose
+                    $ReturnValue = Get-PRTGClientEventlog -Computer $Server -Query $Query -Eventlog $Eventlog -Credential $Credential
                     Write-Verbose "$Timestamp : LOG   : Queried remote eventlog w\ cred. (Return: $($ReturnValue.Count) events)"
                 } Catch {
                     Write-Error     "$TimeStamp : ERROR : Could not Query remote eventlog for server $Server w\ cred."
@@ -214,7 +214,7 @@ If ($Boolean_Exit -eq $False) {
         [String]  $Timestamp    = Get-Date -format yyyy.MM.dd_hh:mm
         If ($Boolean_Skip -eq $False) {
             Try {
-                $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $Channelname -Value Return: $($ReturnValue.Count)
+                $Configuration = Write-PRTGresult -Configuration $Configuration -Channel $Channelname -Value $ReturnValue
                 Write-Verbose    "$Timestamp : LOG   : Written result $ReturnValue to PRTG XML for Channel $Channelname"
             } Catch {
                 Write-Error     "$TimeStamp : ERROR : Could not write results to PRTG XML."

@@ -9,7 +9,7 @@ the Intuneportal, and will expire every year.
 
 Other channels will show the number of days since last sync, and the number of iPhones connected.
 
-For connecting, the an application must be available on Azure for the Graph API. On this sensor, the connection to 
+For connecting, an application must be available on Azure for the Graph API. On this sensor, the connection to 
 this api is secured by a shared secret.
 
 .PARAMETER TennantID

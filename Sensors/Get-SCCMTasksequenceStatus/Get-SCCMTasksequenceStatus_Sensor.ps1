@@ -1,5 +1,5 @@
 ﻿<#
-.SYNOPSIS Get-SCCMTaskSequenceStatus
+.SYNOPSIS
 
 PRTG-Sensor for checking the current status of a Tasksequence for OSD in a Config Manager Site
 
@@ -61,10 +61,10 @@ https://github.com/jaapplugge/PRTGModule
 ## Parameters
 [cmdletbinding()] Param (
         [Parameter(Mandatory=$True ,Position=1)] [String]  $Siteserver,
-        [Parameter(Mandatory=$True ,Position=1)] [String]  $TaskSequence,
+        [Parameter(Mandatory=$True ,Position=2)] [String]  $TaskSequence,
         [Parameter(Mandatory=$True ,Position=3)] [String]  $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String]  $Username = $null,
-        [Parameter(Mandatory=$False,Position=5)] [String]  $Password = $null 
+        [Parameter(Mandatory=$False)] [String]  $Username = $null,
+        [Parameter(Mandatory=$False)] [String]  $Password = $null 
 )
 ## Variables
 [Boolean]   $Boolean_Exit    = $False

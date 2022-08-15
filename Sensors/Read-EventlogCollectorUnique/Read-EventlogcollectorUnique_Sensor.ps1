@@ -68,9 +68,9 @@ https://github.com/jaapplugge/PRTGModule
 ## Parameters
 [cmdletbinding()] Param (
         [Parameter(Mandatory=$True ,Position=1)] [String]  $Server,
-        [Parameter(Mandatory=$True ,Position=3)] [String]  $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String]  $Username = $null,
-        [Parameter(Mandatory=$False,Position=5)] [String]  $Password = $null
+        [Parameter(Mandatory=$True ,Position=2)] [String]  $Filename,
+        [Parameter(Mandatory=$False)] [String]  $Username = $null,
+        [Parameter(Mandatory=$False)] [String]  $Password = $null
 )
 ## Variables
 [Boolean]  $Boolean_Exit    = $False
@@ -172,8 +172,8 @@ If ($Boolean_Exit -eq $False) {
             Write-Verbose   "$Timestamp : LOG   : Channelname : $ChannelName"
             Write-Verbose   "$Timestamp : LOG   : Query       : $Query"
             Write-Verbose   "$Timestamp : LOG   : Eventlog    : $Eventlog"
-            Write-Verbose   "$Timestamp : LOG   : LimitMaxWarning : $LimitMaxWarning"
-            Write-Verbose   "$Timestamp : LOG   : LimitMaxError   : $LimitMaxError"
+            Write-Verbose   "$Timestamp : LOG   : LimitMaxWarning : $WarningValue"
+            Write-Verbose   "$Timestamp : LOG   : LimitMaxError   : $ErrorValue"
         } Catch {
             $Boolean_Skip = $True
             $Boolean_Exit = $True

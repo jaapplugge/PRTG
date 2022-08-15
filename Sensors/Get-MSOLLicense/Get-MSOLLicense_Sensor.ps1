@@ -1,5 +1,5 @@
 ﻿<#
-.SYNOPSIS Get-MSOLLicence_Sensor
+.SYNOPSIS
 PRTG-Sensor for checking license status for MS Office 365 licenses. 
 
 .DESCRIPTION

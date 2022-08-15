@@ -1,5 +1,5 @@
 ﻿<#
-.SYNOPSIS Get-SCCMSCEPClientHealthStatus
+.SYNOPSIS
 
 PRTG-Sensor for checking the current status of the SCEP defenition, on a tennant managing SCEP via SCCM.
 
@@ -67,9 +67,9 @@ https://github.com/jaapplugge/PRTGModule
         [Parameter(Mandatory=$True ,Position=1)] [String]  $Siteserver,
         [Parameter(Mandatory=$True ,Position=2)] [String]  $Site,
         [Parameter(Mandatory=$True ,Position=3)] [String]  $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String]  $Collection = 'SMS00001',
-        [Parameter(Mandatory=$False,Position=5)] [String]  $Username,
-        [Parameter(Mandatory=$False,Position=6)] [String]  $Password
+        [Parameter(Mandatory=$False)] [String]  $Collection = 'SMS00001',
+        [Parameter(Mandatory=$False)] [String]  $Username,
+        [Parameter(Mandatory=$False)] [String]  $Password
 )
 
 ## Variables

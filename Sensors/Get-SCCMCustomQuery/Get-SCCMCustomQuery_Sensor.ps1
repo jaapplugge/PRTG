@@ -63,8 +63,8 @@ https://github.com/jaapplugge/PRTGModule
         [Parameter(Mandatory=$True,Position=2 )] [String] $Site,
         [Parameter(Mandatory=$True,Position=3 )] [String] $Filename,
         [Parameter(Mandatory=$True,Position=4 )] [String] $Prefix,
-        [Parameter(Mandatory=$False,Position=5)] [String] $Username = $null,
-        [Parameter(Mandatory=$False,Position=6)] [String] $Password = $null 
+        [Parameter(Mandatory=$False)] [String] $Username = $null,
+        [Parameter(Mandatory=$False)] [String] $Password = $null 
 )
 ## Variables
 [BOOLEAN]   $Boolean_Exit   = $False

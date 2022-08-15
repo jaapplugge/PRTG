@@ -60,8 +60,8 @@ https://github.com/jaapplugge/PRTGModule
 [cmdletbinding()] Param (
         [Parameter(Mandatory=$True,Position=1)] [String] $Siteserver,
         [Parameter(Mandatory=$True,Position=2)] [String] $Filename,
-        [Parameter(Mandatory=$False,Position=3)] [String] $Username,
-        [Parameter(Mandatory=$False,Position=4)] [String] $Password
+        [Parameter(Mandatory=$False)] [String] $Username,
+        [Parameter(Mandatory=$False)] [String] $Password
 )
 
 ## Variables

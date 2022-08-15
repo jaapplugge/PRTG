@@ -1,5 +1,5 @@
 ﻿<#
-.SYNOPSIS Get-SCCMSiteSystemStatus
+.SYNOPSIS
 PRTG-Sensor for checking the current status of a Config Manager Site
 
 .DESCRIPTION
@@ -208,12 +208,20 @@ If ($Boolean_Exit -eq $false) {
         Write-Verbose "$Timestamp : LOG   : Written result to PRTG XML for Channel "
         If ($Boolean_text_Error -eq $False) {
             If ($Item.Status -ge 2) {
-                $Output_Message = ($Item.Role) + ' - Component is in error since ' + ([Management.ManagementDateTimeConverter]::ToDateTime($Unique_Errors[0].DownSince)) 
+                If ($($Unique_Errors[0].DownSince) ){
+                    $Output_Message = ($Item.Role) + ' - Component is in error since ' + ([Management.ManagementDateTimeConverter]::ToDateTime($Unique_Errors[0].DownSince)) 
+                } Else {
+                    $Output_Message = ($Item.Role) + ' - Component is in error.'
+                }
                 $Boolean_text_error = $True
                 Write-Verbose "$Timestamp : LOG   : Detected errorstatus $Unique_Status"
                 Write-Verbose "$timeStamp : LOG   : $Output_Message"
             } Elseif ($Item.Status -eq 1) {
-                $Output_Message = ($Item.Role) + ' - Component is in warning since ' + ([Management.ManagementDateTimeConverter]::ToDateTime($Unique_Errors[0].DownSince)) 
+                If ($($Unique_Errors[0].DownSince) ){
+                    $Output_Message = ($Item.Role) + ' - Component is in warning since ' + ([Management.ManagementDateTimeConverter]::ToDateTime($Unique_Errors[0].DownSince)) 
+                } Else {
+                    $Output_Message = ($Item.Role) + ' - Component is in warning.'
+                }
                 $Boolean_text_warning = $true
                 Write-Verbose "$Timestamp : LOG   : Detected warningstatus $Unique_Status"
                 Write-Verbose "$timeStamp : LOG   : $Output_Message"

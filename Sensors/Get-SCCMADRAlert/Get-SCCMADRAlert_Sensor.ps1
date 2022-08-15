@@ -64,10 +64,10 @@ https://github.com/jaapplugge/PRTGModule
         [Parameter(Mandatory=$True ,Position=1)] [String]  $Siteserver,
         [Parameter(Mandatory=$True ,Position=2)] [String]  $Site,
         [Parameter(Mandatory=$True ,Position=3)] [String]  $Filename,
-        [Parameter(Mandatory=$False,Position=4)] [String]  $Username = $null,
-        [Parameter(Mandatory=$False,Position=5)] [String]  $Password = $null,        
-        [Parameter(Mandatory=$False,Position=4)] [Boolean] $Timeframe = $False,
-        [Parameter(Mandatory=$False,Position=5)] [Int]     $Months = 2
+        [Parameter(Mandatory=$False)] [String]  $Username = $null,
+        [Parameter(Mandatory=$False)] [String]  $Password = $null,        
+        [Parameter(Mandatory=$False)] [Boolean] $Timeframe = $False,
+        [Parameter(Mandatory=$False)] [Int]     $Months = 2
 )
 
 ## Variables

@@ -1,5 +1,5 @@
 <#
-.SYNOPSIS Get-SCCMUptime
+.SYNOPSIS
 
 PRTG-Sensor for checking the Uptime of a server managed by SCCM.
 
